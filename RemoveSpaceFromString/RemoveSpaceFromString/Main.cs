@@ -1,5 +1,5 @@
 using System;
- using System.Text;
+using System.Text;
 
 namespace RemoveSpaceFromString
 {
@@ -15,6 +15,7 @@ namespace RemoveSpaceFromString
 		
 		private static string RemoveSpace(string input)
 		{
+			//remove space from string
 			StringBuilder sb=new StringBuilder(); 
 			int length=input.Length;
 			for(int index=0; index<length; index++)
