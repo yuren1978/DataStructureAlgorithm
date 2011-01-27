@@ -15,7 +15,7 @@ namespace RemoveSpaceFromString
 		
 		private static string RemoveSpace(string input)
 		{
-			//remove space from string
+			//remove space from string, checked in from home windows machine
 			StringBuilder sb=new StringBuilder(); 
 			int length=input.Length;
 			for(int index=0; index<length; index++)
