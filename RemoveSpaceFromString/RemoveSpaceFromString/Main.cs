@@ -10,6 +10,11 @@ namespace RemoveSpaceFromString
 			string test="I am a just test";
 			string removedString= RemoveSpace(test);
 			Console.WriteLine(removedString);
+			
+			//test empty string.
+			string emptyString=string.Empty;
+			string removedEmtpyString= RemoveSpace(emptyString);
+			Console.WriteLine(removedEmtpyString);
 		}
 		
 		
