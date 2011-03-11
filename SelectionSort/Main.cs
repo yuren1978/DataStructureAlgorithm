@@ -23,6 +23,7 @@ namespace SelectionSort
 			{
 				int minElement=elements[index];
 				int minIndex=index;
+				//find the minimum element to the right.
 				for (int j = index+1; j < length; j++) {
 					if(elements[j]<minElement)
 					{

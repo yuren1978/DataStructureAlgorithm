@@ -19,6 +19,7 @@ namespace BubbleSort
 		private static void BubbleSortArray(int[] a)
 		{
 			//http://www.algolist.net/Algorithms/Sorting/Bubble_sort
+			//key: move the largest element to the end.
 			bool swapped=true;
 			int j=0;
 			while(swapped)
