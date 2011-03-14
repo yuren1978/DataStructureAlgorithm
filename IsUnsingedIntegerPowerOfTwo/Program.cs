@@ -9,6 +9,7 @@ namespace IsUnsingedIntegerPowerOfTwo
     {
         static void Main(string[] args)
         {
+            //Run Test
             uint number1 = 1;
             Console.WriteLine("number1 is the powr of " + IsPowerOfTwo(number1));
         }
