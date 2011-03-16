@@ -10,12 +10,14 @@ namespace TreeTravel
 			//Console.WriteLine ("Hello World!");
 			int?[] a={1 ,2,null,3, null, null,4, 5, null, null, 6, null, null }; 
 			BinaryTreeNode root=CreateBinaryTree(a);
+            Console.ReadLine();
 		}
 		
 		public static BinaryTreeNode CreateBinaryTree(int?[] array)
 		{//use recursive function.
+            Console.WriteLine(index);
 			if(array[index]!=null)
-			{
+			{                
 				BinaryTreeNode node=new BinaryTreeNode();
 				node.value=array[index].Value;
 				index++;

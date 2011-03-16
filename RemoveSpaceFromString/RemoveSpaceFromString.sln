@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveSpaceFromString", "RemoveSpaceFromString\RemoveSpaceFromString.csproj", "{8942CB5A-4975-442F-B7A8-B84B5CA16F84}"
 EndProject
 Global
@@ -13,6 +13,9 @@ Global
 		{8942CB5A-4975-442F-B7A8-B84B5CA16F84}.Debug|x86.Build.0 = Debug|x86
 		{8942CB5A-4975-442F-B7A8-B84B5CA16F84}.Release|x86.ActiveCfg = Release|x86
 		{8942CB5A-4975-442F-B7A8-B84B5CA16F84}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = RemoveSpaceFromString\RemoveSpaceFromString.csproj

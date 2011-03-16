@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "BubbleSort.csproj", "{A346F889-C5A6-42E7-A58D-2DB49BAC0002}"
 EndProject
 Global
@@ -13,6 +13,9 @@ Global
 		{A346F889-C5A6-42E7-A58D-2DB49BAC0002}.Debug|x86.Build.0 = Debug|x86
 		{A346F889-C5A6-42E7-A58D-2DB49BAC0002}.Release|x86.ActiveCfg = Release|x86
 		{A346F889-C5A6-42E7-A58D-2DB49BAC0002}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = BubbleSort.csproj
