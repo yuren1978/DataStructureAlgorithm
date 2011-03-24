@@ -10,7 +10,25 @@ namespace TreeTravel
 			//Console.WriteLine ("Hello World!");
 			int?[] a={1 ,2,null,3, null, null,4, 5, null, null, 6, null, null }; 
 			BinaryTreeNode root=CreateBinaryTree(a);
+			Console.ReadLine();
+			int sizeOfTree=Size(root);
+			Console.WriteLine("size of the tree is "+sizeOfTree); 
+			Console.ReadLine();
+			int detpthOfTree=MaxDepth(root);
+			Console.WriteLine("----Max Depth of the Tree-------"+detpthOfTree);
             Console.ReadLine();
+			Console.WriteLine("----Pre Order-------");
+			PreOrder(root);
+			Console.ReadLine();
+			Console.WriteLine("----In Order-------");
+			InOrder(root);
+			Console.ReadLine();
+			Console.WriteLine("----Post Order-------");
+			PostOrder(root);
+			Console.ReadLine();
+			SerializeTree(root);
+			
+			
 		}
 		
 		public static BinaryTreeNode CreateBinaryTree(int?[] array)
@@ -28,6 +46,70 @@ namespace TreeTravel
 			}
 			else {
 				return null;
+			}
+		}
+		
+		public static void PreOrder(BinaryTreeNode root){
+			if(root!=null)
+			{
+				Console.WriteLine(root.value);
+				PreOrder(root.leftChild);
+				PreOrder(root.rightChild);
+			}
+		}
+		
+		
+			public static void InOrder(BinaryTreeNode root){
+			if(root!=null)
+			{
+				
+				InOrder(root.leftChild);
+				Console.WriteLine(root.value);
+				InOrder(root.rightChild);
+			}
+		}
+			
+			public static void PostOrder(BinaryTreeNode root){
+				if(root!=null)
+				{
+					PostOrder(root.leftChild);
+					PostOrder(root.rightChild);
+					Console.WriteLine(root.value);
+				}
+			}
+		
+		
+		
+		public static int Size(BinaryTreeNode root)
+		{
+			if(root!=null)
+				return 1+Size(root.leftChild)+Size(root.rightChild);
+			else
+				return 0;
+		}
+		
+		public static int MaxDepth(BinaryTreeNode root)
+		{
+			if(root !=null)
+			{
+				return 1+Math.Max( MaxDepth(root.leftChild), MaxDepth(root.rightChild));
+			}
+			else{
+				return -1;
+			}
+		}
+		
+		public static void SerializeTree(BinaryTreeNode root)
+		{
+			if(root==null)
+			{
+				Console.WriteLine("#");
+			}
+			else
+			{
+				Console.WriteLine(root.value);
+				SerializeTree(root.leftChild);
+				SerializeTree(root.rightChild);
 			}
 		}
 	}
