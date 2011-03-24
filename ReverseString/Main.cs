@@ -11,6 +11,10 @@ namespace ReverseString
 			Console.WriteLine (helloWorld);
 			Console.WriteLine(ReverseString(helloWorld) );
 			Console.WriteLine(RecursiveReverseString(helloWorld) );
+			char[] helloWorldCharArray=helloWorld.ToCharArray();
+			Console.WriteLine(helloWorldCharArray);
+			ReverseStringInPlace(helloWorldCharArray);
+			Console.WriteLine(helloWorldCharArray);
 			//Console.WriteLine(ReverseStringFromMiddle(helloWorld) );
 		}
 		
@@ -35,6 +39,16 @@ namespace ReverseString
 			return RecursiveReverseString(rightString)+RecursiveReverseString(leftString);
 		}
 		
+		public static void ReverseStringInPlace(char[] helloWorldCharArray)
+		{
+			int length=helloWorldCharArray.Length;
+			for(int i=0,j=length-1; i<j; i++,j--)
+			{
+				char temp=helloWorldCharArray[i];
+				helloWorldCharArray[i]=helloWorldCharArray[j];
+				helloWorldCharArray[j]=temp;
+			}
+		}
 		
 		
 //		public static string ReverseStringFromMiddle(string inputString)
