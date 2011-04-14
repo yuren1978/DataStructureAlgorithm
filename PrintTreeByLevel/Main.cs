@@ -6,7 +6,6 @@ namespace PrintTreeByLevel
 	//define a tree node.
 	class Node
 	{
-		
 		public int value;
 		public Node leftChild;
 		public Node rightChild;
@@ -22,7 +21,6 @@ namespace PrintTreeByLevel
 			Node root=CreateTree(a, 0, 8);
 			PrintTreeByLeve(root);
             //Try a different tree.
-
 			Console.WriteLine ("End Program");
 		}
 		
@@ -35,7 +33,6 @@ namespace PrintTreeByLevel
 			node.leftChild=CreateTree(array, 2*i+1, length);
 			node.rightChild=CreateTree(array, 2*i+2, length);
 			return node;
-			
 		}
 		
 		private static void PrintTreeByLeve(Node root)

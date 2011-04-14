@@ -13,7 +13,7 @@ namespace BubbleSort
 			for (int i = 0; i < a.Length; i++) {
 				Console.Write(a[i]);
 			}
-			Console.WriteLine();
+			Console.ReadLine();
 		}
 		
 		private static void BubbleSortArray(int[] a)

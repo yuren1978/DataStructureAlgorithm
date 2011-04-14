@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 namespace TreeTravel
 {
@@ -26,7 +27,10 @@ namespace TreeTravel
 			Console.WriteLine("----Post Order-------");
 			PostOrder(root);
 			Console.ReadLine();
-			SerializeTree(root);
+			SerializeTreePreOrder(root);
+			StringBuilder serializeTreestring=new StringBuilder();
+			SerializeTreePreOrder(root, ref serializeTreestring);
+			Console.WriteLine("---serialized string is ----"+serializeTreestring.ToString());
 			
 			
 		}
@@ -99,8 +103,8 @@ namespace TreeTravel
 			}
 		}
 		
-		public static void SerializeTree(BinaryTreeNode root)
-		{
+		public static void SerializeTreePreOrder(BinaryTreeNode root)
+		{ 
 			if(root==null)
 			{
 				Console.WriteLine("#");
@@ -108,10 +112,24 @@ namespace TreeTravel
 			else
 			{
 				Console.WriteLine(root.value);
-				SerializeTree(root.leftChild);
-				SerializeTree(root.rightChild);
+				SerializeTreePreOrder(root.leftChild);
+				SerializeTreePreOrder(root.rightChild);
 			}
 		}
+		
+		public static void SerializeTreePreOrder(BinaryTreeNode root, ref StringBuilder treeString)
+		{
+			if(root==null)
+			{
+				treeString.Append("#");
+			}
+			else {
+				treeString.Append(root.value);
+				SerializeTreePreOrder(root.leftChild, ref treeString);
+				SerializeTreePreOrder(root.rightChild, ref treeString);
+			}
+		}
+		
 	}
 	
 	public class BinaryTreeNode
