@@ -18,14 +18,17 @@ namespace TreeTravelNonRecursive
 			//Create a tree
 			Node root=CreateTree();
 			//Pre-Order Travel the tree
-			Console.WriteLine("---Start Print Tree Pre Order----");
-			PreOrderTravel(root);
+			Console.WriteLine("---Start Print Tree Pre Order Recursive----");
+			PreOrderTravelRecursive(root);
 			
 			Console.WriteLine("---Start Print Tree Pre Order NonRecursive----");
 			PreOrderTravelNonRecursive(root);
 			
-			Console.WriteLine("---Start Print Tree In Order----");
-			InOrderTravel(root);
+			Console.WriteLine("---Start Print Tree In Order Recursive----");
+			InOrderTravelRecursive(root);
+			
+			Console.WriteLine("---Start Print Tree In Order NonRecursive----");
+			InOrderTravelNonRecursive(root);
 			
 			//Travel the tree
 			Console.ReadLine();
@@ -62,26 +65,51 @@ namespace TreeTravelNonRecursive
 		}
 		
 		
-		
-		
-		private static void PreOrderTravel(Node root)
+		private static void InOrderTravelNonRecursive(Node root)
 		{
-			if(root!=null)
+			Stack<Node> stackNodes=new Stack<Node>();
+			Node currentNode=root;
+			bool done=false;
+			while(!done)
 			{
-				Console.WriteLine(root.id);
-				PreOrderTravel(root.left);
-				PreOrderTravel(root.right);
+				if(currentNode!=null)
+				{//push the node.
+					stackNodes.Push(currentNode);
+					currentNode=currentNode.left;
+				}
+				else {//current node is null
+					if(stackNodes.Count==0)
+						done=true;
+					else {
+						currentNode= stackNodes.Pop();
+						Console.WriteLine(currentNode.id);
+						currentNode=currentNode.right;
+					}
+					
+				}
 			}
 		}
 		
 		
-		private static void InOrderTravel(Node root)
+		
+		private static void PreOrderTravelRecursive(Node root)
+		{
+			if(root!=null)
+			{
+				Console.WriteLine(root.id);
+				PreOrderTravelRecursive(root.left);
+				PreOrderTravelRecursive(root.right);
+			}
+		}
+		
+		
+		private static void InOrderTravelRecursive(Node root)
 		{
 			if(root !=null)
 			{
-				InOrderTravel(root.left);
+				InOrderTravelRecursive(root.left);
 				Console.WriteLine(root.id);
-				InOrderTravel(root.right);
+				InOrderTravelRecursive(root.right);
 			}
 		}
 	}

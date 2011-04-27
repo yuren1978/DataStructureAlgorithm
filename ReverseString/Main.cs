@@ -8,14 +8,21 @@ namespace ReverseString
 		public static void Main (string[] args)
 		{
 			string helloWorld="Hello World!";
+			Console.WriteLine("----- reverse string  ---------");
 			Console.WriteLine (helloWorld);
 			Console.WriteLine(ReverseString(helloWorld) );
+			Console.WriteLine("----- reverse string recursive ---------");
 			Console.WriteLine(RecursiveReverseString(helloWorld) );
+			Console.WriteLine("----- reverse string in place ---------");
 			char[] helloWorldCharArray=helloWorld.ToCharArray();
 			Console.WriteLine(helloWorldCharArray);
 			ReverseStringInPlace(helloWorldCharArray);
 			Console.WriteLine(helloWorldCharArray);
-			//Console.WriteLine(ReverseStringFromMiddle(helloWorld) );
+			Console.WriteLine("----- reverse string xor ---------");
+			helloWorldCharArray=helloWorld.ToCharArray();
+			Console.WriteLine(helloWorldCharArray);
+			ReverseStringInPlaceXor(helloWorldCharArray);
+			Console.WriteLine(helloWorldCharArray);
 		}
 		
 		public static  string ReverseString(string inputString)
@@ -50,19 +57,15 @@ namespace ReverseString
 			}
 		}
 		
-		
-//		public static string ReverseStringFromMiddle(string inputString)
-//		{
-//			int stringLength=inputString.Length;
-//			int halfLength=stringLength/2;
-//			for(int index=0; index<halfLength; index++)
-//			{
-//				char temp=inputString[index];
-//				inputString[index]=inputString[stringLength-index];
-//				inputString[stringLength-index]=temp;
-//			}
-//			return inputString;
-//		}
+		public static void ReverseStringInPlaceXor(char[] helloWorldCharArray)
+		{
+			int length=helloWorldCharArray.Length;
+			for (int i = 0, j = length-1; i<j ;i++,j--) {
+				helloWorldCharArray[i]^=helloWorldCharArray[j];
+				helloWorldCharArray[j]^=helloWorldCharArray[i];
+				helloWorldCharArray[i]^=helloWorldCharArray[j];
+			}
+		}
 	}
 }
 
