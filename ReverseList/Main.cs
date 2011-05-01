@@ -22,6 +22,9 @@ namespace ReverseList
 			int[] a={1,2,3,4,5};
 			list.head=ArrayToList(a);
 			PrintList(list);
+			ReverseList(list);
+			Console.WriteLine("----- After Revese List ----");
+			PrintList(list);
 			Console.ReadLine();
 		}
 		
@@ -51,6 +54,22 @@ namespace ReverseList
 				Console.Write(" #");
 				current=current.next;
 			}
+			Console.WriteLine();
+		}
+		
+		
+		public static void ReverseList(List list)
+		{
+			Node prev=null;
+			Node current=list.head;
+			while(current!=null)
+			{
+				Node next=current.next;
+				current.next=prev;
+				prev=current;
+				current=next;
+			}
+			list.head=prev;
 		}
 	}
 }
