@@ -18,8 +18,47 @@ namespace TreeToDoubleLinkList
 			Node root=CreateTree();
 			InOrderTravel(root);
 			Node head= ConvertToDoubleList(root);
+			PrintCircularList(head);
 		}
 		
+		
+		private static Node ConvertToDoubleList(Node node)
+		{
+			if(node==null) return null;
+			Node leftList=ConvertToDoubleList(node.leftChild);
+			Node rightList=ConvertToDoubleList(node.rightChild);
+			
+			node.leftChild=node;
+			node.rightChild=node;
+			
+			leftList=Merge(leftList, node);
+			leftList=Merge(leftList, rightList);
+			return leftList;
+		}
+		
+		private static void PrintCircularList(Node head)
+		{
+			Node current=head;
+			do {
+				Console.WriteLine(current.value);
+				current=current.rightChild;
+			} while (current!=head);
+		}
+		
+		private static Node Merge(Node leftList, Node rightList)
+		{
+			if(leftList==null) return rightList;
+			if(rightList==null) return leftList;
+			Node lastNodeInLeftList=leftList.leftChild;
+			Node lastNodeInrightList=rightList.leftChild;
+			
+			lastNodeInLeftList.rightChild=rightList;
+			rightList.leftChild=lastNodeInLeftList;
+			leftList.leftChild=lastNodeInrightList;
+			lastNodeInrightList.rightChild=leftList;
+			
+			return leftList;
+		}
 		
 		private static Node CreateTree()
 		{
