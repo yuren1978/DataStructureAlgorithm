@@ -73,7 +73,7 @@ namespace TreeTravelNonRecursive
 			while(!done)
 			{
 				if(currentNode!=null)
-				{//push the node.
+				{//push the node, it could be either left node or right node
 					stackNodes.Push(currentNode);
 					currentNode=currentNode.left;
 				}

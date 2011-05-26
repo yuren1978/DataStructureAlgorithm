@@ -24,6 +24,7 @@ namespace TreeToDoubleLinkList
 		
 		private static Node ConvertToDoubleList(Node node)
 		{
+			//base condition
 			if(node==null) return null;
 			Node leftList=ConvertToDoubleList(node.leftChild);
 			Node rightList=ConvertToDoubleList(node.rightChild);
