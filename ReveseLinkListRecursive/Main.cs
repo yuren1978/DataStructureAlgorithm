@@ -26,7 +26,12 @@ namespace ReveseLinkListRecursive
 		
 		public static void PrintList(Node head)
 		{
-			
+			Node temp=head;
+			while(temp!=null)
+			{
+				Console.WriteLine(temp.value);
+				temp=temp.next;
+			}
 		}
 		
 		public static Node CreateList()
