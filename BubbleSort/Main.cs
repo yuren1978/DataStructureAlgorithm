@@ -23,7 +23,7 @@ namespace BubbleSort
 			bool swapped=true;
 			int j=0;
 			while(swapped)
-			{//outer loop
+			{//outer loop, while there is still something in the inner loop, we need continue working on.
 				swapped=false;
 				j++;
 				for (int i = 0; i < a.Length-j; i++) {//inner loop
