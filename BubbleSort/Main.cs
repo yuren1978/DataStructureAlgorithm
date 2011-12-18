@@ -23,10 +23,10 @@ namespace BubbleSort
 			bool swapped=true;
 			int j=0;
 			while(swapped)
-			{
+			{//outer loop
 				swapped=false;
 				j++;
-				for (int i = 0; i < a.Length-j; i++) {
+				for (int i = 0; i < a.Length-j; i++) {//inner loop
 					if(a[i]>a[i+1])
 					{
 						int temp=a[i];
@@ -39,4 +39,3 @@ namespace BubbleSort
 		}
 	}
 }
-
