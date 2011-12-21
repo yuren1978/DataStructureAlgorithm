@@ -9,3 +9,11 @@
 *.DS_Store
 [Tt]humbs.db 
 _ReSharper.*
+.o
+o.obj
+.lib
+.so
+.dll
+.exe
+a.out
+RemoveSpaceFromString
