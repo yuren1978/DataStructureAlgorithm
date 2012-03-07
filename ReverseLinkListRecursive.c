@@ -19,6 +19,7 @@ Node* CreateLinkListFromArray(int* a, int start, int end){
 			head=newNode;
 		}
 	}
+	return head;
 }
 
 void PrintList(Node* head){
@@ -30,29 +31,30 @@ void PrintList(Node* head){
 }
 
 Node* ReverseList(Node* head){
-	Node* reveseHead;
+	Node* reverseHead;
 	Node* nextNode;
 	if(head==0)
 		reverseHead=0;		
 	nextNode=head->next;
 	if(nextNode==0){
-		reveseHead=head;	
+		reverseHead=head;	
 	}
 	else {
 		Node* tempNextNode=nextNode;
-		Node* reverseHead=ReverseList(nextNode);
+		reverseHead=ReverseList(nextNode);
 		tempNextNode->next=head;
 		head->next=0;
-	}	
+	}		
 	return reverseHead;	
 }
 
 
 int main(int argc, char *argv[]) {
-	int[] a={1,2,3,4,5,6,7,8,9,10};
-	int length=sizeof(a)/sizie(*a);
-	Node* head=CreateLinkListFromArray(a, 0, length-1);
+	int a[]={1,2};
+	int length=sizeof(a)/sizeof(*a);
+	Node* head=CreateLinkListFromArray(a, 0, length);
 	PrintList(head);
-	Node* reversedHead= ReverseList(head);
+	Node* reverseHead= ReverseList(head);
 	PrintList(reverseHead);
+	return 0;
 }
