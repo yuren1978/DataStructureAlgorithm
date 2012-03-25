@@ -31,11 +31,7 @@ int main(int argc, char *argv[]) {
 	//int a[]={1,2,3,4,5,6,7,8,10};
 	int a[]={1};
 	int size=sizeof(a)/sizeof(*a);
-	int middle=size/2;
-	TreeNode* treeNode=malloc(sizeof(TreeNode));
-	treeNode->value=a[middle];
-	treeNode->leftChild=MakeTree(a, 0,middle-1);
-	treeNode->rightChild=MakeTree(a,middle+1,size-1);
+	TreeNode* treeNode=MakeTree(a,0,size-1);
 	InOrderPrint(treeNode);
 }
 
