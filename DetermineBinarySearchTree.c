@@ -28,6 +28,7 @@ void InOrderPrint(TreeNode* root){
 	}
 }
 
+
 TreeNode* CreateTreeFromArray(int* array, int start, int end){
 	if(start>end){
 		return 0;
