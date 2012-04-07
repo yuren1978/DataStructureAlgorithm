@@ -33,14 +33,12 @@ void InOrderPrint(Node* root){
 void TreeToCircularDoubleLinkList(Node* node, Node* & head, Node* & prev){
 	if(node!=0){
 		TreeToCircularDoubleLinkList(node->left, head, prev);
-		if(node->left!=0){
-			prev=node->left;
+		Node left=node->left;
+		if(left!=0){
+			left->next=node;
 		}
 		else{//only be set once.
 			head=node;
-		}
-		if(prev!=0){
-			prev->right=node;
 		}
 		node->left=prev;
 		Node* right=node->right;
