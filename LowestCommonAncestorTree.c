@@ -47,7 +47,6 @@ TreeNode* LowestCommonAncestor(const TreeNode* root, int leftValue, int rightVal
 
 int main(int argc, char const *argv[])
 {
-	/* code */
 	int a[]={1,2,3,4,5,6,7,8,9,10};
 	int length=sizeof(a)/sizeof(*a);
 	printf("The lenght of the array is %d \n", length);
