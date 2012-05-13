@@ -27,15 +27,14 @@ using System;
         int ans = 0;
         while (c >= 0)
         {
-            Console.WriteLine("b :"+b+ " c: "+ c + " a: "+a);
+            Console.WriteLine(" c: "+ c + " a: "+a);
             if (b << c <= a)
             {
                 a -= b << c;
-                Console.WriteLine("a :"+a);
-                Console.WriteLine("c :"+c);
-
+               Console.WriteLine(" c: "+ c + " a: "+a);
+  
                 ans |= 1 << c;
-                Console.WriteLine("ans :"+ans);
+                Console.WriteLine(" ans :"+ans);
             }
             c--;
         }
