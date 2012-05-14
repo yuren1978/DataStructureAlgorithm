@@ -2,7 +2,8 @@
 
 
 void reverseString(char* test, int length){
-	for (int i = 0; i < length/2; i++) {
+	int i;
+	for (i = 0; i < length/2; i++) {
 		char temp=test[i];
 		test[i]=test[length-1-i];
 		test[length-1-i]=temp;
