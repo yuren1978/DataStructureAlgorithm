@@ -11,6 +11,14 @@ void printv(int mask[], int n) {
 }
 
 /* Generates the next mask*/
+
+//0,0,0,0 to 1,0,0,0
+//1,0,0,0 to 0,1,0,0
+//0,1,0,0 to 1,1,0,0
+//1,1,0,0 to 0,0,1,0
+//0,0,1,0 to 1,0,1,0
+//
+
 int next(int mask[], int n) {
 	int i;
 	for (i = 0; (i < n) && mask[i]; ++i)
@@ -18,25 +26,39 @@ int next(int mask[], int n) {
 
 	if (i < n) {
 		mask[i] = 1;
+//		printmask(mask);
 		return 1;
 	}
+//	printmask(mask);
 	return 0;
 }
 
-int main(int argc, char *argv[]) {
-	int n = 3;
+void printmask(int mask[]){
+	for(int index=0; index<4; index++){
+		printf("%d-", mask[index]);
+	}
+	printf("\n");
+}
 
-	int mask[16]; /* Guess what this is */
+int main(int argc, char *argv[]) {
+	int n = 4;
+
+	int mask[4]; /* Guess what this is */
+	
 	int i;
 	for (i = 0; i < n; ++i)
 		mask[i] = 0;
 
 	/* Print the first set */
+	//printmask(mask);
 	printv(mask, n);
 
 	/* Print all the others */
-	while (next(mask, n))
+	while (next(mask, n)){
+		//printmask(mask);
 		printv(mask, n);
+	}
+		
 
 	return 0;
 }
