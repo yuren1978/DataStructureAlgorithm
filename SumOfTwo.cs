@@ -14,7 +14,7 @@ namespace SumOfTwo
 			int index1=-1, index2=-1;
 			GetIndexForUnsortedArray(a, sum, ref index1, ref index2);
 			Console.WriteLine("First index is " + index1 + " and Second index is "+index2);
-			Console.ReadLine();
+			
 		}
 		
 		private static bool GetIndexForUnsortedArray(int[] array, int sum, ref int index1, ref int index2)

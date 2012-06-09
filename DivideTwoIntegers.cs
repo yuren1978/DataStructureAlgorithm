@@ -21,8 +21,6 @@ using System;
         int c = 0;
         while (b << c <= a){
                c++;
-               //Console.WriteLine("b :" +b);
-               //Console.WriteLine("c :" +c); 
         }            
         int ans = 0;
         while (c >= 0)
