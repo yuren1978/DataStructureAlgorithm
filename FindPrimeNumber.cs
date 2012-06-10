@@ -33,6 +33,6 @@ class FindPrimeNumber{
 	
 	static void Main(){
 		Console.WriteLine("Find Prime Numbers");
-		PrintPrimeNumbers(30);
+		PrintPrimeNumbers(48);
 	}
 }
