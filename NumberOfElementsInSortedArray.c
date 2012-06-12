@@ -8,9 +8,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int NumberOfOccurance()
+int NumberOfOccurance(int* array, int length, int numberToLookFor){
+	int startIndex, endIndex;
+	int begin, end, middle;
+}
 
 int main(int argc, char *argv[]) {
-	
+	int a[]={1,1,1,2,2,2,2,3,3,3,3,4,4,4,5};
 	return 0;
 }
