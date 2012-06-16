@@ -11,7 +11,7 @@ void ReverseString(char* input){
 }
 
 int main(int argc, char *argv[]) {
-	char test[]="I am a test";
+	char test[]="I am a test bus";
 	printf("%s\n",test);
 	ReverseString(test);
 	printf("%s\n",test);

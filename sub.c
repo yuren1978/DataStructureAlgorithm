@@ -42,16 +42,7 @@ void printmask(int mask[]){
 
 int main(int argc, char *argv[]) {
 	int n = 4;
-
-	int mask[4]; /* Guess what this is */
-	
-	int i;
-	for (i = 0; i < n; ++i)
-		mask[i] = 0;
-
-	/* Print the first set */
-	//printmask(mask);
-	printv(mask, n);
+	int mask[4]={0}; /* Guess what this is */
 
 	/* Print all the others */
 	while (next(mask, n)){
