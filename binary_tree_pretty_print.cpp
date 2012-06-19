@@ -96,18 +96,34 @@ void printPretty(BinaryTree *root, int level, int indentSpace, ostream& out) {
   printLeaves(indentSpace, level, nodesInThisLevel, nodesQueue, out);
 }
 
+BinaryTree* CreateTreeFromArray(int* array, int start, int end){
+	if(start>end){
+		return NULL;
+	}
+	int middle=(start+end)/2;
+	BinaryTree* node=new BinaryTree(array[middle]);
+	node->left=CreateTreeFromArray(array, start, middle-1);
+	node->right=CreateTreeFromArray(array, middle+1, end);
+	return node;
+}
+
 int main() {
-  BinaryTree *root = new BinaryTree(30);
-  root->left = new BinaryTree(20);
-  root->right = new BinaryTree(40);
-  root->left->left = new BinaryTree(10);
-  root->left->right = new BinaryTree(25);
-  root->right->left = new BinaryTree(35);
-  root->right->right = new BinaryTree(50);
-  root->left->left->left = new BinaryTree(5);
-  root->left->left->right = new BinaryTree(15);
-  root->left->right->right = new BinaryTree(28);
-  root->right->right->left = new BinaryTree(41);
+  //BinaryTree *root = new BinaryTree(30);
+  //root->left = new BinaryTree(20);
+  //root->right = new BinaryTree(40);
+  //root->left->left = new BinaryTree(10);
+  //root->left->right = new BinaryTree(25);
+  //root->right->left = new BinaryTree(35);
+  //root->right->right = new BinaryTree(50);
+  //root->left->left->left = new BinaryTree(5);
+  //root->left->left->right = new BinaryTree(15);
+  //root->left->right->right = new BinaryTree(28);
+  //root->right->right->left = new BinaryTree(41);
+
+
+	int a[]={1,2,3,4,5,6,7};
+	int sizeOfArray=sizeof(a)/sizeof(*a);
+	BinaryTree* root=CreateTreeFromArray(a,0,sizeOfArray-1 );
 
   cout << "Tree pretty print with level=1 and indentSpace=0\n\n";
   // Output to console
