@@ -9,7 +9,7 @@ typedef struct treeNode{
 } TreeNode;
 
 bool IsBinarySearchTree(TreeNode* root, int minValue, int maxValue){
-	if(root!=0){
+	if(root!=NULL){
 		if(root->value>minValue && root->value<maxValue){
 			return IsBinarySearchTree(root->leftChild,minValue,root->value) 
 				&& IsBinarySearchTree(root->rightChild, root->value, maxValue) ;
@@ -21,7 +21,7 @@ bool IsBinarySearchTree(TreeNode* root, int minValue, int maxValue){
 }
 
 void InOrderPrint(TreeNode* root){
-	if(root!=0){
+	if(root!=NULL){
 		InOrderPrint(root->leftChild);
 		printf("%d\t", root->value);
 		InOrderPrint(root->rightChild);	
@@ -31,7 +31,7 @@ void InOrderPrint(TreeNode* root){
 
 TreeNode* CreateTreeFromArray(int* array, int start, int end){
 	if(start>end){
-		return 0;
+		return NULL;
 	}
 	int middle=(start+end)/2;
 	TreeNode* node=malloc(sizeof(TreeNode));
