@@ -3,9 +3,9 @@
 #include <limits.h>
 
 typedef struct treeNode{
-	int value;
-	struct treeNode* leftChild;
-	struct treeNode* rightChild;
+	int data;
+	struct treeNode* left;
+	struct treeNode* right;
 } TreeNode;
 
 bool IsBinarySearchTree(TreeNode* root, int minValue, int maxValue){
