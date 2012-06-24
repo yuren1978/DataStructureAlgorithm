@@ -6,7 +6,7 @@
 #include <string>
 #include <cmath>
 using namespace std;
-
+doubleSquare
 struct BinaryTree {
   BinaryTree *left, *right;
   int data;
