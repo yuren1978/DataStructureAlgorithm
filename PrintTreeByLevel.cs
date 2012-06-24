@@ -27,33 +27,7 @@ class TreeByLevel
 			return null;
 		}
 	}
-	
-	static void  BFSPrintTreeByLevel(Node root){
-		if(root==null)
-			return;					
-		Queue<Node> queue=new Queue<Node>();
-		queue.Enqueue(root);
-		int currentLevelNode=1;
-		int nextLevelNode=0;
-		while(queue.Count>0)
-		{
-			Node topOfQueue=queue.Dequeue();
-			currentLevelNode--;
-			if(topOfQueue!=null){
-				Console.Write(topOfQueue.value+"\t");
-				queue.Enqueue(topOfQueue.left);
-				queue.Enqueue(topOfQueue.right);
-				nextLevelNode+=2;
-			}
-			
-			if(currentLevelNode==0){
-				Console.WriteLine();
-				currentLevelNode=nextLevelNode;
-				nextLevelNode=0;
-			}
-		}
-	}
-	
+
 	static void Main()
 	{
 		int[] a={1,2,3,4,5,6,7,8,9};
