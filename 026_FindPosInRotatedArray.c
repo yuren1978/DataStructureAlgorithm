@@ -1,3 +1,7 @@
+#include "stdlib.h"
+#include "assert.h"
+#include "stdio.h"
+
 int FindPosInArray(int* a, int length, int value){
 	int posOfIndex=-1;
 	int start=0;
@@ -38,7 +42,7 @@ int main(int argc, char const *argv[])
 
 	int a[]={7,8,9, 1,2,3,4,5,6};
 	int length=sizeof(a)/sizeof(*a);	
-	int pos=FindPosInArray(a, length, 10);
-	printf("%d\n",pos);
+	assert(-1==FindPosInArray(a, length, 10)) ;
+	assert(0==FindPosInArray(a, length, 7)) ;
 	return 0;
 }
