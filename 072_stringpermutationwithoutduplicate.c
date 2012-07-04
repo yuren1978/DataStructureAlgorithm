@@ -14,7 +14,7 @@ void swap(char *str, int first, int second){
 void PermutationWithDuplicateHash(char *str, int position)
 {
  	int HashTable[128] = {0};  //assume ASCII
-    if (position == strlen(str)-1) {
+    if (position == strlen(str)) {
         printf("%s\n", str);
         return;
     }
