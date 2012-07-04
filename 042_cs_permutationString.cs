@@ -32,7 +32,7 @@ class PermutationString{
 	
 		
 	static void Main(){
-		string inputString="abc";
+		string inputString="abcd";
 		PermutateString(inputString, 0);
 	}
 }

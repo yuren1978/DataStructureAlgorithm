@@ -26,7 +26,7 @@
  */
 void permute(char *string_start, char *p) {
   
-  if (*(p+1) == 0) { /* End of string - just print it */
+  if (*(p+1) == '\0') { /* End of string - just print it */
     printf("%s\n", string_start);
   }
   else {
@@ -43,11 +43,8 @@ void permute(char *string_start, char *p) {
   }
 }
 
-main(int argc, char **argv) {
-  char string[21];
-
-  printf("String to permute?\n");
-  scanf("%20s", string);
-  printf("Permutations of %s:\n", string);
+int main() {
+  char string[] = "aba";  
   permute(string, string);
+  return 0;	
 }

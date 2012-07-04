@@ -1,32 +1,24 @@
 #include <stdio.h>
-#include <stdbool.h>
+#include <stdlib.h>
 #include <limits.h>
 
+typedef enum  {false, true} bool;
+
 typedef struct treeNode{
-	int data;
+	int value;
 	struct treeNode* left;
 	struct treeNode* right;
 } TreeNode;
 
-bool IsBinarySearchTree(TreeNode* root, int minValue, int maxValue){
-	if(root!=NULL){
-		if(root->value>minValue && root->value<maxValue){
-			return IsBinarySearchTree(root->leftChild,minValue,root->value) 
-				&& IsBinarySearchTree(root->rightChild, root->value, maxValue) ;
-		}else {
-			return false;
-		}	
-	}
-	return true;
-}
 
 void InOrderPrint(TreeNode* root){
 	if(root!=NULL){
-		InOrderPrint(root->leftChild);
+		InOrderPrint(root->left);
 		printf("%d\t", root->value);
-		InOrderPrint(root->rightChild);	
+		InOrderPrint(root->right);	
 	}
 }
+
 
 
 TreeNode* CreateTreeFromArray(int* array, int start, int end){
@@ -36,13 +28,28 @@ TreeNode* CreateTreeFromArray(int* array, int start, int end){
 	int middle=(start+end)/2;
 	TreeNode* node=malloc(sizeof(TreeNode));
 	node->value=array[middle];
-	node->leftChild=CreateTreeFromArray(array, start, middle-1);
-	node->rightChild=CreateTreeFromArray(array, middle+1, end);
+	node->left=CreateTreeFromArray(array, start, middle-1);
+	node->right=CreateTreeFromArray(array, middle+1, end);
 	return node;
 }
 
+bool IsBinarySearchTree(TreeNode* root, int min, int max){
+	if(root!=NULL){
+		if(root->value>min && root->value <max){
+			return IsBinarySearchTree(root->left, min, root->value)
+				&& IsBinarySearchTree(root->right, root->value, max);
+		}
+		else {
+			return false;
+		}		
+	}
+	else {
+		return true;
+	}
+}
+
 int main(int argc, char* argv[]){
-	int a[]={1,2,3,4,5,6};
+	int a[]={1,2,3,4,5,6,7};
 	int sizeOfArray=sizeof(a)/sizeof(*a);
 	TreeNode* root=CreateTreeFromArray(a,0,sizeOfArray-1 );
 	InOrderPrint(root);
