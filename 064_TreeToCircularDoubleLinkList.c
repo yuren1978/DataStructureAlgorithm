@@ -1,4 +1,5 @@
-
+#include "stdlib.h"
+#include "stdio.h"
 
 typedef struct node
 {
@@ -11,7 +12,7 @@ Node* ConvertArrayToTree(int* a, int start, int end)
 {
 	if(start<=end){
 		int middle=(start+end)/2;
-		Node node=malloc(sizeof(Node));
+		Node* node=malloc(sizeof(Node));
 		node->value=a[middle];
 		node->left=ConvertArrayToTree(a, start, middle-1);
 		node->right=ConvertArrayToTree(a, middle+1,end);
@@ -33,7 +34,7 @@ void InOrderPrint(Node* root){
 void TreeToCircularDoubleLinkList(Node* node, Node* & head, Node* & prev){
 	if(node!=0){
 		TreeToCircularDoubleLinkList(node->left, head, prev);
-		Node left=node->left;
+		Node* left=node->left;
 		if(left!=0){
 			left->next=node;
 		}

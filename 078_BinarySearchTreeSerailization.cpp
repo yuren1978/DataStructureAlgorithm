@@ -42,7 +42,7 @@ TreeNode* CreateTreeFromArray(int* array, int start, int end){
 }
 
 TreeNode* CreateBFSFromPreOrderArray(int* array, int length, int& index, int min, int max ){
-	printf("\n length is %d index is %d and  value is %d min is %d and max is %d", length, index, array[index], min, max);
+	//printf("\n length is %d index is %d and  value is %d min is %d and max is %d", length, index, array[index], min, max);
 	if  (array[index]>min && array[index]<max) {
 		int value=array[index];
 		//printf("\n index is %d and  value is %d ", index, value);

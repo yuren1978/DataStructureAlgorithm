@@ -6,7 +6,7 @@
 #include <string>
 #include <cmath>
 using namespace std;
-doubleSquare
+
 struct BinaryTree {
   BinaryTree *left, *right;
   int data;
@@ -121,7 +121,7 @@ int main() {
   //root->right->right->left = new BinaryTree(41);
 
 
-	int a[]={1,2,3,4,5,6,7};
+	int a[]={1,2,3,4,5,6,7,8,9,10};
 	int sizeOfArray=sizeof(a)/sizeof(*a);
 	BinaryTree* root=CreateTreeFromArray(a,0,sizeOfArray-1 );
 
