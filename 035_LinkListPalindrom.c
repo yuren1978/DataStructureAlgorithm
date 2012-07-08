@@ -51,9 +51,9 @@ int main(int argc, char *argv[]) {
 	Node* head=CreateListFromArray(a,7);
 	bool isPalin=isPalindrome(&head, head);
 	if(isPalin){
-		printf("\n Palindrome")
+		printf("\n Palindrome");
 	}else {
-		printf("\n Non-Palindrome")
+		printf("\n Non-Palindrome");
 	}
 	
 	

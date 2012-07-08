@@ -1,3 +1,5 @@
+//to be practices
+
 #include <stdio.h>
 #include <stdlib.h>
 

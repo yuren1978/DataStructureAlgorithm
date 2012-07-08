@@ -32,30 +32,26 @@ void PermutationWithDuplicateHash(char *str, int position)
     }  
 }
 
-void permute(char *string_start, char *p) {
+void permute(char *str, int position) {
   
-  if (*(p+1) == '\0') { /* End of string - just print it */
-    printf("%s\n", string_start);
-  }
-  else {
-    char *swap;
-    /* Go along the string, swapping each element in turn with p */
-    for(swap = p; *swap; ++swap) {
-      char tmp = *swap;
-      *swap = *p;
-      *p = tmp;
-      permute(string_start, p+1);
-      *p = *swap;
-      *swap = tmp;
+     if (position == strlen(str)) {
+        printf("%s\n", str);
+        return;
     }
-  }
+        
+    for (int i = position; i<strlen(str) ; i++)
+    {        
+        swap(str,position, i);
+        PermutationWithDuplicateHash(str,position+1);
+        swap(str,i , position);
+    }  
 }
 
 int main()
 {
     char str[] = "aba";    
 	printf("allow duplicate\n");
-    permute(str,str);
+    permute(str,0);
     // If duplicated character is allowed, let's sort the string first.
     //sort(str);
     //PermutationWithDuplicate(str, 0)

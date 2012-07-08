@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-int AddNumber(int a, int b){
+unsigned int AddNumber(unsigned int a, unsigned int b){
 	int sum;
 	int carry;
 	do {
