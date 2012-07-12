@@ -67,6 +67,7 @@ public class NextElementInBinaryTree{
 								return current;
 							}
 							prev=current;
+							
 							current=current.right;
 						}
 					

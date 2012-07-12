@@ -62,5 +62,5 @@ int myatoi(const char* p)
 
 
 int main(int argc, char *argv[]) {
-	return 0;
+	assert(123==myatoi("123"));
 }

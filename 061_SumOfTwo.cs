@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SumOfTwo
-{
-	class MainClass
+class MainClass
 	{
 		public static void Main (string[] args)
 		{
@@ -39,5 +37,5 @@ namespace SumOfTwo
 		}
 		
 	}
-}
+
 
