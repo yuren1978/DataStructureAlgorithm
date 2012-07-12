@@ -36,7 +36,7 @@ Node* CreateTreeFromPreInOrder(char inOrder[], char preOrder[], int length){
 	}else {
 		char preOrderChar=preOrder[0];
 		int posOfCharInOrder=FindPositionOf(inOrder, length,preOrderChar);
-		printf("position : %d\t", posOfCharInOrder);
+		//printf("position : %d\t", posOfCharInOrder);
 		if(posOfCharInOrder>=0){
 			Node* node=malloc(sizeof(Node));			node->value=preOrderChar;
 			node->left=CreateTreeFromPreInOrder(inOrder, preOrder+1, posOfCharInOrder);
