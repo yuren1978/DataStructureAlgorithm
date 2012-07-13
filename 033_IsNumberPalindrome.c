@@ -24,6 +24,21 @@ bool isPalindrome(int x) {
   return true;
 }
 
+//bool isPalindromeRecursive(int x, int &y) {
+//  if (x < 0) return false;
+//  if (x == 0) return true;
+//  if (isPalindromeRecursive(x/10, y) && (x%10 == y%10)) {
+//    y /= 10;
+//    return true;
+//  } else {
+//    return false;
+//  }
+//}
+//bool isPalindromeCallRecursive(int x) {
+//  return isPalindromeRecursive(x, x);
+//}
+
+
 
 int main(int argc, char *argv[]) {
 	printf("\n Test palindrom");
