@@ -61,8 +61,10 @@ break;
 
 for (int j=colStrt; j<colEnd; j++)
 printf("%d ", a[rowStrt][j]);
-for (int j=rowStrt; j<colStrt; j--)
-printf("%d ", a[rowEnd][j]);
+
+for (int i=rowStrt; i<rowEnd; i++)
+printf("%d ", a[i][colEnd]);
+
 for (int i=rowEnd; i>rowStrt; i--)
 printf("%d ", a[i][colStrt]);
 
@@ -82,6 +84,6 @@ int main(int argc, char *argv[]) {
 		{4,7,10,13},
 		{6,8,11,15}
 	};
-	print_spiral_helper(a,4,4);
-	//print_spiral_nonrecursive(a,4,4);
+	//print_spiral_helper(a,4,4);
+	print_spiral_nonrecursive(a,4,4);
 }
