@@ -60,13 +60,16 @@ break;
 }
 
 for (int j=colStrt; j<colEnd; j++)
-printf("%d ", a[rowStrt][j]);
+	printf("%d ", a[rowStrt][j]);
 
 for (int i=rowStrt; i<rowEnd; i++)
-printf("%d ", a[i][colEnd]);
+	printf("%d ", a[i][colEnd]);
+
+for (int j=colEnd; j>colStrt; j--) 
+	printf("%d ", a[rowEnd][j]);
 
 for (int i=rowEnd; i>rowStrt; i--)
-printf("%d ", a[i][colStrt]);
+	printf("%d ", a[i][colStrt]);
 
 colStrt++, colEnd--;
 rowStrt++, rowEnd--;
