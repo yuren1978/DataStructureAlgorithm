@@ -1,37 +1,73 @@
+//Three task
+//1. pre order non recursive
+//2. in order non recursive
+//3. create an iterator for pre order
+//4. create an iterator for in order
 using System;
 using System.Collections.Generic;
 
-public class InOrderIterator{
-	private Node _current;
-	private Stack<Node> _stack=new Stack<Node>();
-	public InOrderIterator(Node root){
-		_current=root;
-	}
-
-	public bool HasNext(){
-		return _current!=null || _stack.Count>0;
-	}
-
-	public Node Next(){
-		while(_current!=null){
-			_stack.Push(_current);
-			_current=_current.left;
-		}
-		Node nodeToReturn=_stack.Pop();
-		_current=_current.right;
-		return nodeToReturn;
-	}
-}
-
-
-public class Node{
-	public int value {get;set;}
-	public Node left {get;set;}
-	public Node right {get;set;}
-}
 
 public class BinaryTreeInOrderNonRecursive{
 
+	class Node{
+		public int value {get;set;}
+		public Node left {get;set;}
+		public Node right {get;set;}
+	}
+	
+	class InOrderIterator{
+		private Stack<Node> _stack=new Stack<Node>();
+		
+		public InOrderIterator(Node root){
+			while (root!=null) {
+				_stack.Push(root);
+				root=root.left;
+			}
+		}
+		
+		public bool HasNext(){
+			return _stack.Count>0;
+		}
+
+		public Node Next{
+			get{
+				 Node node = _stack.Pop();
+				 Node current = node.right;
+				 while (current!=null) {
+				        _stack.Push(current);
+				        current = current.left;
+				 }
+				 return node;
+			}
+		}
+	}
+	
+	class PreOrderIterator2{
+		
+		private Stack<Node> _stack=new Stack<Node>();
+		
+		public PreOrderIterator2(Node root){
+			_stack.Push(root);
+		}
+		
+		public bool HasNext(){
+			return _stack.Count>0;
+		}
+		
+		public Node Next{
+			get
+			{
+				Node node=_stack.Pop();
+				if(node.right!=null)
+					_stack.Push(node.right);
+				if(node.left!=null)
+					_stack.Push(node.left);
+				return node;		
+			}
+		}
+	}
+	
+	
 	static Node CreateTreeFromArray(int[] a, int start, int end){
 		if(start<=end){
 			int middle=(start+end)/2;
@@ -45,22 +81,6 @@ public class BinaryTreeInOrderNonRecursive{
 		}		
 	}
 
-	static void InOrderTravel(Node root){
-		Stack<Node> stack=new Stack<Node>();
-		Node current=root;
-		while(current!=null||stack.Count>0){
-			if(current!=null){
-				stack.Push(current);
-				current=current.left;
-			}
-			else{
-				current=stack.Pop();
-				Console.Write(current.value+"-");
-				current=current.right;
-			}	
-		}
-	}
-
 	static void PreOrderRecursive(Node root){
 		if(root!=null){
 			Console.WriteLine(root.value+"#");
@@ -68,20 +88,42 @@ public class BinaryTreeInOrderNonRecursive{
 			PreOrderRecursive(root.right);
 		}
 	}
-
-	static void PreOrderTravel(Node root){
+	
+	static void InOrderNonRecursive(Node root){
 		Stack<Node> stack=new Stack<Node>();
 		Node current=root;
-		stack.Push(current);
-		while(stack.Count>0){
-			current=stack.Pop();
-			Console.Write(current.value+"-");
-			if(current.right!=null)
-				stack.Push(current.right);
-			if(current.left!=null)
-				stack.Push(current.left);	
+		while (current!=null || stack.Count>0) {
+			if(current!=null){
+				stack.Push(current);
+				current=current.left;
+			}
+			else {
+				current=stack.Pop();
+				if(current!=null){
+					Console.WriteLine(current.value);
+					current=current.right;
+				}
+			}
 		}
 	}
+	
+	static void PreOrderNonRecursive(Node root){
+		Stack<Node> stack=new Stack<Node>();
+		Node current=root;
+		while (current!=null || stack.Count>0) {
+			if(current!=null){
+				Console.WriteLine(current.value);
+				if(current.right!=null)
+					stack.Push(current.right);
+				current=current.left;
+			}
+			else {
+				current=stack.Pop();
+			}
+		}
+	}
+
+	
 
 	static void Main(){
 		int[] a={1,2,3,4,5,6,7,8,9,10};
@@ -93,9 +135,20 @@ public class BinaryTreeInOrderNonRecursive{
 		//	Node iteratorNode=inOrderIterator.Next();
 		//	Console.Write(iteratorNode.value+"-");
 		//}
-		PreOrderTravel(root);
-		Console.WriteLine();
-		PreOrderRecursive(root);
+		//PreOrderTravel(root);
+		//Console.WriteLine();
+		//PreOrderRecursive(root);
+		//PreOrderNonRecursive(root);
+		//InOrderNonRecursive(root);
+		PreOrderIterator2 preOrderIterator=new PreOrderIterator2(root);
+		while (preOrderIterator.HasNext()) {
+			Console.WriteLine("value is :"+ preOrderIterator.Next.value  );
+		}
+		
+		//InOrderIterator inOrderIterator=new InOrderIterator(root);
+		//while (inOrderIterator.HasNext()) {
+		//	Console.WriteLine("value is :"+ inOrderIterator.Next.value  );
+		//}
 	}
 
 }

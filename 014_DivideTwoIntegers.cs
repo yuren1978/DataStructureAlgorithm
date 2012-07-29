@@ -2,6 +2,15 @@ using System;
 
   
  public class DivideTwoInteger{
+	
+public static int NativeDivide(int dividend, int divisor){
+	int quotient=0;
+	while (dividend>divisor) {
+		dividend-=divisor;
+		quotient++;
+	}
+	return quotient;
+}	
  
  public static int divide(int dividend, int divisor) 
     {
@@ -42,6 +51,8 @@ using System;
     static void Main(){
         int answer=divide(-100,3);
         Console.WriteLine(answer);
+		 int answer2=NativeDivide(100,3);
+		 Console.WriteLine(answer2);
     }
 }
 
