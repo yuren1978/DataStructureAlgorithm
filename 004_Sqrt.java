@@ -27,9 +27,12 @@ class Sqrt {
 		{
 			double mid = (start+end)/2;
 			double midSqr = mid*mid;
-			if(midSqr==a) return mid;//we find the exact sqrt value!
-			else if(midSqr<a) start = mid;//we shift our focus to bigger half
-			else end = mid;//shift focus to smaller half
+			if(midSqr==a) 
+				return mid;//we find the exact sqrt value!
+			else if(midSqr<a) 
+					start = mid;//we shift our focus to bigger half
+			else 
+				end = mid;//shift focus to smaller half
 		}
 		
 		//if we did not find exact sqrt value, we return the approxiated value with the defined precision

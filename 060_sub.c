@@ -17,7 +17,7 @@ void printv(int mask[], int n) {
 //0,1,0,0 to 1,1,0,0
 //1,1,0,0 to 0,0,1,0
 //0,0,1,0 to 1,0,1,0
-//
+
 
 int next(int mask[], int n) {
 	int i;
@@ -26,7 +26,7 @@ int next(int mask[], int n) {
 
 	if (i < n) {
 		mask[i] = 1;
-//		printmask(mask);
+		printmask(mask);
 		return 1;
 	}
 //	printmask(mask);
