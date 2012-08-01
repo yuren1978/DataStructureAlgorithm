@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <math.h>
 
 int doubleSquare(unsigned int m) {
   int total = 0;
