@@ -16,9 +16,9 @@ int MaxDiffDynamic(int* number, unsigned int length){
 		if(number[i-1]>maxNumber){
 			maxNumber=number[i-1];
 		}
-		int currentDiff=maxNumber-number[i];
-		if(currentDiff>maxDiff){
-			maxDiff=currentDiff;
+		int currentMaxDiff=maxNumber-number[i];
+		if(currentMaxDiff>maxDiff){
+			maxDiff=currentMaxDiff;
 		}
 	}
 	return maxDiff;		
