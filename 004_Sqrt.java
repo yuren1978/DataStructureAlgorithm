@@ -4,10 +4,10 @@ class Sqrt {
 	
 	public static void main(String[] args){
 		System.out.println(sqrt(25.0));
-		System.out.println(sqrt(0.25));
+		System.out.println(sqrt(0.0625));
 	}		
 	//define method header
-	public static double sqrt(double a)
+	static double sqrt(double a)
 	{
 		//firstly check if a is non-negative value
 		if(a<0) return -1;
