@@ -10,6 +10,15 @@ void printv(int mask[], int n) {
 	printf("\b }\n");
 }
 
+
+void printmask(int mask[]){
+	for(int index=0; index<4; index++){
+		printf("%d-", mask[index]);
+	}
+	printf("\n");
+}
+
+
 /* Generates the next mask*/
 
 //0,0,0,0 to 1,0,0,0
@@ -31,13 +40,6 @@ int next(int mask[], int n) {
 	}
 //	printmask(mask);
 	return 0;
-}
-
-void printmask(int mask[]){
-	for(int index=0; index<4; index++){
-		printf("%d-", mask[index]);
-	}
-	printf("\n");
 }
 
 int main(int argc, char *argv[]) {
