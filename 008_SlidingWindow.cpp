@@ -29,6 +29,8 @@ vector<int> maxInWindows(const vector<int>& numbers, int windowSize)
 
             while(!indices.empty() && numbers[i] >= numbers[indices.back()])
                 indices.pop_back();
+
+			  //the number at the front is beyond the scope the current sliding window, and it should be popped off.  	
             if(!indices.empty() && indices.front() <= i - windowSize)
                 indices.pop_front();
 

@@ -4,52 +4,42 @@
 #include <cstdlib>
 #include <cassert>
 #include <stack>
+#include <iostream>
 
+using namespace std;
 
-
-	bool IsPopOrder(const int* pPush, const int* pPop, int nLength)
+	bool IsPopOrder(const int* push, const int* pop, int nLength)
 	{
-	    bool bPossible = false;
-
-	    if(pPush != NULL && pPop != NULL && nLength > 0)
-	    {
-	        const int* pNextPush = pPush;
-	        const int* pNextPop = pPop;
-
-	        std::stack<int> stackData;
-
-	        while(pNextPop - pPop < nLength)
-	        {
-	            // When the number to be popped is not on top of stack,
-	            // push some numbers in the push sequence into stack
-	            while(stackData.empty() || stackData.top() != *pNextPop)
-	            {
-	                // If all numbers have been pushed, break
-	                if(pNextPush - pPush == nLength)
-	                    break;
-
-	                stackData.push(*pNextPush);
-
-	                pNextPush ++;
-	            }
-
-	            if(stackData.top() != *pNextPop)
-	                break;
-
-	            stackData.pop();
-	            pNextPop ++;
-	        }
-
-	        if(stackData.empty() && pNextPop - pPop == nLength)
-	            bPossible = true;
-	    }
-
-	    return bPossible;
+		bool isProperOrder=false;
+		const int* currentPush=push;
+		const int* currentPop=pop;
+		stack<int> pushStack;
+		//cout<<"start";
+		while (currentPush-push<nLength ) {
+			if(pushStack.size()==0 || pushStack.top()!=*currentPop){
+				//cout<<"push";
+				pushStack.push(*currentPush);				++currentPush;			
+			} 
+			
+			while(pushStack.size()>0 && pushStack.top()==*currentPop && currentPop-pop<nLength){
+				pushStack.pop();
+				++currentPop;
+			}
+		}
+		
+		if(pushStack.size()==0)	
+			isProperOrder=true;
+		
+		return isProperOrder;
 	}
 
 	
 	int main(int argc, char *argv[]) {
 		int push[]={1, 2, 3, 4, 5};
-		int pop[]={1, 2, 3, 4, 5};
-		assert(IsPopOrder(push, pop, 5));
+		int pop1[]={1, 2, 3, 4, 5};
+		int pop2[]={4, 5, 3, 2, 1};
+		int pop3[]={4, 3, 5, 1, 2};
+		assert(IsPopOrder(push, pop1, 5));
+		assert(IsPopOrder(push, pop2, 5));
+		assert(false==IsPopOrder(push, pop3, 5));
 	}

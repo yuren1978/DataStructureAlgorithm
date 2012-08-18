@@ -25,7 +25,7 @@ void DeleteDuplicateFromList(Node* head){
 	Node* temp=head;
 	while(temp!=0){
 		Node* current=temp;
-		while(current!=0 && current->next!=0){
+		while(current->next!=0){
 			if(temp->value==current->next->value){
 				current->next=current->next->next;
 			}

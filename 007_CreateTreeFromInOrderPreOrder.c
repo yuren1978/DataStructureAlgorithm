@@ -28,37 +28,10 @@ void PreOrderTravel(TreeNode* root){
 	}
 }
 
-int FindPositionInOrderArray(int* in_order, int firstElementInPreOrder, int length){
-	int posInArray=0;
-	for (int i=0; i<length; i++) {
-		if(in_order[i]==firstElementInPreOrder){
-			posInArray=i;
-			break;
-		}
-	}
-	assert(posInArray>=0);
-	return posInArray;
-}
 
-TreeNode* CreateTreeFromInOrderAndPreOrder(int* in_order, int* pre_order, int length){
-	if(length>1){
-		int firstElement=*pre_order;
-		int posInInOrderArray=FindPositionInOrderArray(in_order, firstElement, length);
-		TreeNode* root=malloc(sizeof(TreeNode));
-		root->value=in_order[posInInOrderArray];		root->left=CreateTreeFromInOrderAndPreOrder(in_order, pre_order+1, posInInOrderArray );
-		root->right=CreateTreeFromInOrderAndPreOrder(in_order+posInInOrderArray+1, pre_order+posInInOrderArray+1, length-posInInOrderArray-1);
-		return root;
-	}
-	else if(length==1){
-		TreeNode* root=malloc(sizeof(TreeNode));
-		root->value=*in_order;
-		root->left=NULL;
-		root->right=NULL;
-		return root;
-	}
-	else if (length==0) {
-		return NULL;
-	}
+
+TreeNode* CreateTreeFromInOrderAndPreOrder(int* in_order, int* pre_order, int length)
+{
 }
 
 

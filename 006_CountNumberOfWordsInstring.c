@@ -4,25 +4,9 @@
 
 typedef enum {false, true} bool;
 
-int CountNumberOfWordsInString(const char* sentence){
-	int count=0;
-	bool word=false;
-	char* p=sentence;
-	while (*p !='\0') {
-		//printf("%c \t", *p);
-		if(*p !=' '&& !word){
-			//printf(" word count ");
-			++count;
-			word=true;
-		}
-		else {
-			if(*p ==' '&& word){
-				word=false;
-			}
-		}
-		p++;
-	}
-	return count;
+int CountNumberOfWordsInString(const char* sentence)
+{
+	
 }
 
 int main(int argc, char *argv[]) {
