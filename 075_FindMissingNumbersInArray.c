@@ -1,3 +1,7 @@
+//http://www.mitbbs.com/article_t/JobHunting/31342084.html
+//1. 一个sorted interger Array[1...N], 已知范围 1...N+1. 已知一个数字missing。
+//   找该数字。 
+//   把原题改为unsorted，找missing数字。 performance。
 #include <stdio.h>
 #include <assert.h>
 
@@ -39,5 +43,5 @@ int main(int argc, char *argv[]) {
 	int length=sizeof(a)/sizeof(*a);
 	
 	assert(4==firstMissingPositiveXOr(a, length));
-	assert(4==firstMissingPositive(a, length));
+	//assert(4==firstMissingPositive(a, length));
 }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <deque>
+#include <iterator>
 
 using namespace std;
 
@@ -15,22 +16,16 @@ vector<int> maxInWindows(const vector<int>& numbers, int windowSize)
     {
         deque<int> indices;
 
-        for(int i = 0; i < windowSize; ++i)
+         for(int i = 0; i < numbers.size(); ++i)
         {
-            while(!indices.empty() && numbers[i] >= numbers[indices.back()])
-                indices.pop_back();
-
-            indices.push_back(i);
-        }
-
-        for(int i = windowSize; i < numbers.size(); ++i)
-        {
-            maxInSlidingWindows.push_back(numbers[indices.front()]);
+			 if(i>=windowSize){
+				maxInSlidingWindows.push_back(numbers[indices.front()]);	
+			}
+            
 
             while(!indices.empty() && numbers[i] >= numbers[indices.back()])
                 indices.pop_back();
-
-			  //the number at the front is beyond the scope the current sliding window, and it should be popped off.  	
+			  //the number at the front is beyond the scope the current sliding window, and it should be popped off. 	
             if(!indices.empty() && indices.front() <= i - windowSize)
                 indices.pop_front();
 
@@ -42,8 +37,15 @@ vector<int> maxInWindows(const vector<int>& numbers, int windowSize)
     return maxInSlidingWindows;
 }
 
+template <class T>
+void display_container( const T& v ) {
+	// display elements using method of choice
+	std::copy(v.begin(), v.end(), ostream_iterator<typename T::value_type>(cout, "\n"));
+}
+
 int main(int argc, char *argv[]) {
 	static const int arr[] = {2, 3, 4, 2, 6, 2, 5, 1};
 	vector<int> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
 	vector<int> maxArrayInWindow= maxInWindows(vec,3);
+	display_container(maxArrayInWindow);
 }
