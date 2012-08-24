@@ -9,22 +9,6 @@ using System.Collectons.Generic;
 class LongestPalindrom{
 	
 	string largestPalindrome(string inputString){
-		int length=inputString.Length;
-		if(length<=1){
-			return inputString;
-		}
-		string palinString=inputString.SubString(0,1);
-		for (int i=0; i<length-1; i++) {
-			string oddPalinDrom=GetPalindromFromCenter(inputString, i,i);
-			if(oddPalinDrom.Length>palinString.Length){
-				palinString=oddPalinDrom;
-			}
-			string evenPalinDrom=GetPalindromFromCenter(inputString, i, i+1);
-			if(evenPalinDrom.Length>palinString.Length){
-				palinString=evenPalinDrom;
-			}
-		}
-		return palinString;
 	}
 	
 	static void Main(){

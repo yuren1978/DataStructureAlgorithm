@@ -26,22 +26,6 @@ class PathWithSpecificSum{
 	}
 	
 	static void PrintPathWithSum(TreeNode root, Stack<TreeNode> stack, int sum, int value){
-		sum += root.value;
-		stack.Push(root);
-		if(root.left!=null || root.right!=null){
-			
-			PrintPathWithSum(root.left, stack, sum, value);			TreeNode leftPop=stack.Pop();
-			sum -= leftPop.value;
-			PrintPathWithSum(root.right, stack, sum, value);
-			TreeNode rightPop= stack.Pop();
-			sum -= rightPop.value;
-		}
-		else {//get to the leaf node
-			Console.WriteLine(sum);
-			if(sum==value){//print out the stack
-				PrintStack(stack);
-			}
-		}
 	} 
 				
 	static void Main(){

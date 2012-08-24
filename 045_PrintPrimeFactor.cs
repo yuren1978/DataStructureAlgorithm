@@ -6,16 +6,7 @@ class PrintPrimeFactor{
 	
 	static void PrimeFactor(int n){
 		Console.Write("Factor of "+n+" : ");
-		int prime=2;
-		while (n>1) {
-			if(n%prime==0){
-				n=n/prime;
-				Console.Write(prime+" ");
-			}
-			else {
-				prime++;
-			}
-		}
+	
 		Console.WriteLine();	
 	}
 		

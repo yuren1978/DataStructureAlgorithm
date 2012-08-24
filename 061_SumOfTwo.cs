@@ -17,23 +17,6 @@ class MainClass
 		
 		private static bool GetIndexForUnsortedArray(int[] array, int sum, ref int index1, ref int index2)
 		{
-			bool found=false;
-			Dictionary<int,int> hashTable=new Dictionary<int, int>();
-			for (int i = 0; i < array.Length; i++) 
-			{
-				if(hashTable.ContainsKey(sum-array[i]))
-				{
-					index1=i;
-					index2=hashTable[sum-array[i]];
-					found=true;
-					break;
-				}
-				else 
-				{
-					hashTable.Add(array[i], i);
-				}
-			}
-			return found;
 		}
 		
 	}

@@ -30,18 +30,7 @@ void InOrderTravel(TreeNode* root){
 
 TreeNode* LowestCommonAncestor(const TreeNode* root, int leftValue, int rightValue)
 {
-	if(root==0)
-		return 0;
-	if(root->value==leftValue||root->value==rightValue)		return root; 
-	TreeNode* leftLcs=LowestCommonAncestor(root->leftChild, leftValue, rightValue);
-	TreeNode* rightLcs=LowestCommonAncestor(root->rightChild, leftValue, rightValue);	if(leftLcs!=0 && rightLcs!=0)
-		return root;
-	else {
-		if(leftLcs!=0)
-			return leftLcs;
-		else 
-			return rightLcs;
-	}	
+
 			
 }
 

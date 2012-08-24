@@ -34,18 +34,7 @@ TreeNode* CreateTreeFromArray(int* array, int start, int end){
 }
 
 bool IsBinarySearchTree(TreeNode* root, int min, int max){
-	if(root!=NULL){
-		if(root->value>min && root->value <max){
-			return IsBinarySearchTree(root->left, min, root->value)
-				&& IsBinarySearchTree(root->right, root->value, max);
-		}
-		else {
-			return false;
-		}		
-	}
-	else {
-		return true;
-	}
+
 }
 
 int main(int argc, char* argv[]){

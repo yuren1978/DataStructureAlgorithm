@@ -10,32 +10,6 @@ class ThreeSum
 	
 	
 	static List<List<int>> GetThreeSum(List<int> list){
-		var threeSumList=new List<List<int>>();
-		list.Sort();
-		int length=list.Count;
-		
-		for (int i=0; i<length; i++) {
-			int a=list[i];
-			int j=i+1;
-			int k=length-1;
-			while (j<k) {
-				if(a+list[j]+list[k]<0){
-					j++;
-				}
-				else if (a+list[j]+list[k]>0) {
-					k--;
-				}
-				else{
-					List<int> zeroList=new List<int>();					zeroList.Add(a);
-					zeroList.Add(list[j]);
-					zeroList.Add(list[k]);
-					threeSumList.Add(zeroList);
-					j++;
-					k--;
-				}
-			}			
-		}		
-		return threeSumList;
 	}
 	
 	static void Main()

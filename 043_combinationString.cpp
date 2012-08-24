@@ -24,15 +24,7 @@ void CombinationNumber(const int* cur, int length)
 
 void Combination2(const char* cur, int length)
 {
-	int number=std::pow(2.0,length);
-	for (int i=1; i<number; i++) {
-		for (int j=0; j<length; j++) {
-			if((i>>j)&1){
-				printf("i is %d - j is %d  i>>j is %d  %c ", i, j, i>>j, *(cur+j));
-			}
-		}
-		printf("\n");
-	}
+
 }
 
 void Combination(const char* cur, vector<char>& result)

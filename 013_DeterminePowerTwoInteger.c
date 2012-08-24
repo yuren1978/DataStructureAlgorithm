@@ -3,7 +3,7 @@
 
 bool IsPowerOfIntegerTwo(unsigned int value)
 {
-	return  (value & (value-1)) ==0;
+	
 }
 
 

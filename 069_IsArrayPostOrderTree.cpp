@@ -114,23 +114,6 @@ BinaryTree* CreateTreeFromArray(int* array, int start, int end){
 }
 
 bool IsArrayPostOrder(int array[], int start, int end){
-	if(start<end){
-		int position=start;
-		int lastElement=array[end];
-		while (array[position]<lastElement) {
-			position++;
-		}
-		int middle=position-1;
-		while (position<end) {
-			if(array[position++]<lastElement){
-				return false;
-			}
-		}
-		return IsArrayPostOrder(array, start, middle) && IsArrayPostOrder(array, middle+1,end-1);
-	}
-	else {
-		return true;
-	}
 }
 
 int main() {

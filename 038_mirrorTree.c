@@ -32,15 +32,7 @@ PreOrder(Node* root){
 }
 
 void MirrorTree(Node* root){
-	if(root==0)
-		return;
-	Node* leftTree=root->left;
-	if(root->right!=0){
-		root->left=root->right;
-		root->right=leftTree;
-	}
-	MirrorTree(root->left);
-	MirrorTree(root->right);				
+		
 }
 
 int main(int argc, char *argv[]) {

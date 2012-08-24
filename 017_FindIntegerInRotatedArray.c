@@ -4,36 +4,7 @@
 
 
 int FindPosInArray(int* array, int length, int number){
-	int position=-1;
-	int start=0;
-	int end=length-1;
-	
-	while (start<=end) {
-		int middle=(start+end)/2;
-		if(array[middle]==number){
-			position=middle;
-			break;
-		}
-		else {
-			if(array[middle+1]<array[end]){
-				if(number>=array[middle+1] && number<=array[end]){
-					start=middle+1;
-				}
-				else {
-					end=middle-1;
-				}
-			}
-			else {
-				if(number<=array[middle-1] && number>=array[0] ){
-					end=middle-1;
-				}
-				else {
-					start=middle+1;
-				}
-			}
-		}
-	}
-	return position;
+
 }
 
 

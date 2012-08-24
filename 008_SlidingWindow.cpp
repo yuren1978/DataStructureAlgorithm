@@ -11,30 +11,7 @@ using namespace std;
 
 vector<int> maxInWindows(const vector<int>& numbers, int windowSize)
 {
-    vector<int> maxInSlidingWindows;
-    if(numbers.size() >= windowSize && windowSize > 1)
-    {
-        deque<int> indices;
-
-         for(int i = 0; i < numbers.size(); ++i)
-        {
-			 if(i>=windowSize){
-				maxInSlidingWindows.push_back(numbers[indices.front()]);	
-			}
-            
-
-            while(!indices.empty() && numbers[i] >= numbers[indices.back()])
-                indices.pop_back();
-			  //the number at the front is beyond the scope the current sliding window, and it should be popped off. 	
-            if(!indices.empty() && indices.front() <= i - windowSize)
-                indices.pop_front();
-
-            indices.push_back(i);
-        }
-        maxInSlidingWindows.push_back(numbers[indices.front()]);
-    }
-
-    return maxInSlidingWindows;
+	
 }
 
 template <class T>

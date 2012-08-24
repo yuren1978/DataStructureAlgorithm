@@ -33,69 +33,10 @@ class TreeByLevel
 	}
 
 	static void ZigZapByLevel(Node root){
-		if(root==null)
-				return;
-			bool leftToRight=true;
-			List<Node> list=new List<Node>();
-			Queue<Node> queue=new Queue<Node>();
-			queue.Enqueue(root);
-			int currentLevelNode=1;
-			int nextLevelNode=0;
-			
-			while(queue.Count>0){
-				Node current=queue.Dequeue();
-				currentLevelNode--;	
-					
-				if(current!=null){
-					list.Add(current); 
-					queue.Enqueue(current.left);
-					queue.Enqueue(current.right);
-					nextLevelNode+=2;
-				}
-				
-				if(currentLevelNode==0){
-					if(leftToRight){//left to right
-						leftToRight=false;
-					}
-					else {
-						list.Reverse();
-						leftToRight=true;
-					}
-					list.ForEach(PrintNode);
-					list.Clear();
-					Console.WriteLine(" ");
-					currentLevelNode=nextLevelNode;
-					nextLevelNode=0;
-				}
-			}	
+	
 	}
 
 	static void BFSPrintTreeByLevel(Node root){
-		if(root==null)
-			return;
-			
-		Queue<Node> queue=new Queue<Node>();
-		queue.Enqueue(root);
-		int currentLevelNode=1;
-		int nextLevelNode=0;
-		
-		while(queue.Count>0){
-			Node current=queue.Dequeue();
-			currentLevelNode--;	
-				
-			if(current!=null){
-				Console.Write(current.value+" ");
-				queue.Enqueue(current.left);
-				queue.Enqueue(current.right);
-				nextLevelNode+=2;
-			}
-			
-			if(currentLevelNode==0){
-				Console.WriteLine("");
-				currentLevelNode=nextLevelNode;
-				nextLevelNode=0;
-			}
-		}	
 	}
 
 

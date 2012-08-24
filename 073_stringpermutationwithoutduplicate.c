@@ -13,23 +13,6 @@ void swap(char *str, int first, int second){
 //pre: str is not sorted and str can't be changed. We can use hash to do this.
 void PermutationWithDuplicateHash(char *str, int position)
 {
- 	int HashTable[128] = {0};  //assume ASCII
-    if (position == strlen(str)) {
-        printf("%s\n", str);
-        return;
-    }
-        
-    for (int i = position; i<strlen(str) ; i++)
-    {        
-        if (HashTable[str[i]] > 0) continue;
-        else{
-            HashTable[str[i]] = 1;
-        }
-            
-        swap(str,position, i);
-        PermutationWithDuplicateHash(str,position+1);
-        swap(str,i , position);
-    }  
 }
 
 void permute(char *str, int position) {

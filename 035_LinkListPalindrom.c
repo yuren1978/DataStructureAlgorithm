@@ -32,17 +32,7 @@ Node* CreateListFromArray(int* a , int length)
 }
 
 bool isPalindrome(Node** left, Node* right){
-	if(right==NULL)
-		return true;
-		
-	bool isPalin=	isPalindrome(left, right->next);
-	if(isPalin==false)
-		return false;
-		
-	bool isPalin1=(right->value==(*left)->value);
-	
-	*left=(*left)->next;
-	return isPalin1;	
+
 }
 
 

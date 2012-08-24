@@ -32,19 +32,6 @@ void PreOrderPrint(TreeNode* root){
 }
 
 TreeNode* ReCreateTreeFromPreOrder(int* array, int& index, int length){
-	while (index<length) {
-		int digit=array[index];
-		if(digit=='#'){
-			return NULL;
-		}
-		else {
-			TreeNode* node=new TreeNode();
-			node->value=digit;	
-			node->left=ReCreateTreeFromPreOrder(array, ++index, length);
-			node->right=ReCreateTreeFromPreOrder(array, ++index, length);
-			return node;
-		}
-	}
 }
 
 int main(int argc, char *argv[]) {

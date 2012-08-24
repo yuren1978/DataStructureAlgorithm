@@ -6,24 +6,7 @@
 #include <assert.h>
 
 int GetMaximumCount(int a[], int length){
-		if(length==0)
-			return 0;
-		int maxCount=0;
-		int count=0;
-		int compareValue=a[0];
-		for (int i=0;i<length; i++) {
-			if(a[i]==compareValue){
-				count++;
-			}
-			else {
-				if(count>maxCount){
-					maxCount=count;
-				}
-				count=1;
-				compareValue=a[i];			
-			}
-		}
-		return maxCount;
+
 }
 
 int main(int argc, char *argv[]) {

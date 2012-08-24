@@ -42,39 +42,7 @@ void print_spiral_helper(int mat[][N_MAX], int m, int n) {
 }
 
 void print_spiral_nonrecursive(int a[][N_MAX], int m, int n) {
-	int rowStrt = 0, rowEnd = n-1;
-	int colStrt = 0, colEnd = m-1;
 
-	while (rowStrt <= rowEnd) {
-		if (rowStrt == rowEnd) { /// Only 1 row
-			for (int j=colStrt; j<=colEnd; j++)
-				printf("%d ", a[rowStrt][j]);
-			break;
-		}
-
-		if (colStrt == colEnd) { /// Only 1 col
-			for (int i=rowStrt; i<=rowEnd; i++)
-				printf("%d ", a[i][colStrt]);
-			break;
-		}
-
-		for (int j=colStrt; j<colEnd; j++)
-			printf("%d ", a[rowStrt][j]);
-
-		for (int i=rowStrt; i<rowEnd; i++)
-			printf("%d ", a[i][colEnd]);
-
-		for (int j=colEnd; j>colStrt; j--) 
-			printf("%d ", a[rowEnd][j]);
-
-		for (int i=rowEnd; i>rowStrt; i--)
-			printf("%d ", a[i][colStrt]);
-
-		colStrt++, colEnd--;
-		rowStrt++, rowEnd--;
-		printf("\nrowStrt = %d, rowEnd = %d\n", rowStrt, rowEnd);
-	}
-	fprintf(stderr, "Time execute: %.3lf\n", clock() / (double)CLOCKS_PER_SEC);
 
 }
 

@@ -52,27 +52,7 @@ public class NextElementInBinaryTree{
 	
 	static Node GetNextElement2(Node root, int value){
 
-					
-					Stack<Node> stack=new Stack<Node>();
-					Node prev=null;
-					Node current=root;
-					while (stack.Count>0 || current!=null  ) {
-						while(current!=null){
-							stack.Push(current);
-							current=current.left;
-						}
-						
-							current=stack.Pop();
-							if(prev!=null && prev.value==value){
-								return current;
-							}
-							prev=current;
-							
-							current=current.right;
-						}
-					
-					return null;
-
+	
 	}
 	
 

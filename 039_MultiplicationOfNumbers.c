@@ -7,15 +7,6 @@
 // 
 
 void Multiply(int* input, int length, int* output){
-	int left=1;
-	int right=1;
-	for (int i=0; i<length; i++) {
-		//every value is collected twice,one from left, and the other from righ
-		output[i]*=left;
-		output[length-1-i]*=right;
-		left*=input[i];
-		right*=input[length-1-i];
-	}
 }
 
 int main(){

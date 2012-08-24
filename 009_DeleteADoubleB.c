@@ -17,38 +17,7 @@ void removeCharacter(char* s, char compareChar){
 }
 
 void remove_a_double_b(char *s) {
-    int i, j, n, na, nb, nc; // nc is number of characters other than A
-    na = nb = 0;
-    j = 0;
-    for (i = 0; s[i] != '\0'; i++) {
-        if (s[i] == 'A')
-            na++;
-        else {
-            s[j] = s[i];
-            j++;
-            if (s[i] == 'B')
-                nb++;
-        }
-    }
-
-    n = i;
-    nc = j; // nc is number of characters other than A
-    i = n - na + nb;
-    s[i] = '\0';
-    i--;
-
-    for (j = nc - 1; j >= 0; j--) {
-        if (s[j] == 'B') {
-            s[i] = 'B';
-            i--;
-            s[i] = 'B';
-            i--;
-        }
-        else {
-            s[i] = s[j];
-            i--;
-        }
-    }
+	
 }
 
 int main(int argc, char *argv[]) {

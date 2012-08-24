@@ -29,17 +29,6 @@ Node* CreateTreeFromArray(int* a, int start, int end)
 }
 
 void PopulateNextNodeInTree(Node* root){
-	if(root!=0){		
-			if(root->left!=0){
-				root->left->next=root->right;				}
-			if(root->right!=0){
-				if(root->next!=0){
-					root->right->next=root->next->left!=0?root->next->left:root->next->right;
-				}
-			}
-			PopulateNextNodeInTree(root->left);
-			PopulateNextNodeInTree(root->right);
-	}
 } 
 
 void PreOrderPrintNext(Node* root){
