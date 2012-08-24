@@ -20,21 +20,6 @@ void PrintList(Node* head){
 }
 
 void DeleteDuplicateFromList(Node* head){
-	if(head==0)
-		return;	
-	Node* temp=head;
-	while(temp!=0){
-		Node* current=temp;
-		while(current->next!=0){
-			if(temp->value==current->next->value){
-				current->next=current->next->next;
-			}
-			else {
-				current=current->next;	
-			}				
-		}
-		temp=temp->next;
-	}			
 }
 
 Node* CreateListFromArray(int* a, int length){

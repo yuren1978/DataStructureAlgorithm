@@ -10,27 +10,7 @@ using namespace std;
 
 	bool IsPopOrder(const int* push, const int* pop, int nLength)
 	{
-		bool isProperOrder=false;
-		const int* currentPush=push;
-		const int* currentPop=pop;
-		stack<int> pushStack;
-		//cout<<"start";
-		while (currentPush-push<nLength ) {
-			if(pushStack.size()==0 || pushStack.top()!=*currentPop){
-				//cout<<"push";
-				pushStack.push(*currentPush);				++currentPush;			
-			} 
-			
-			while(pushStack.size()>0 && pushStack.top()==*currentPop && currentPop-pop<nLength){
-				pushStack.pop();
-				++currentPop;
-			}
-		}
 		
-		if(pushStack.size()==0)	
-			isProperOrder=true;
-		
-		return isProperOrder;
 	}
 
 	
