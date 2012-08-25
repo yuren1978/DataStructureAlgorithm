@@ -21,17 +21,39 @@ class PathWithSpecificSum{
 		return root;
 	}
 	
-	static void PrintStack(Stack<TreeNode> stack){
+	static void PrintStack(Stack<int> stack){
 		Console.WriteLine("stack end find, print");
+		int[] array=stack.ToArray();
+		for (int i=0; i<array.Length; i++)
+		{
+			Console.Write(array[i]+" ");
+		}
+		Console.WriteLine();
 	}
 	
-	static void PrintPathWithSum(TreeNode root, Stack<TreeNode> stack, int sum, int value){
+	static void PrintPathWithSum(TreeNode root, Stack<int> stack, int sum, int value){
+		if(root!=null){
+			sum+=root.value;
+			//Console.WriteLine("Push Value "+root.value);
+			stack.Push(root.value);
+			if(sum==value){
+				PrintStack(stack);
+			}
+		}
+		
+		if(root.left!=null)
+			PrintPathWithSum(root.left, stack, sum, value);
+		if(root.right!=null)	
+			PrintPathWithSum(root.right,stack, sum, value);
+				
+		int topValue=stack.Pop();
+		//Console.WriteLine("Pop Value "+topValue);
+		sum-=topValue;
 	} 
 				
 	static void Main(){
-		Console.WriteLine("Print Path with specific sum");
 		TreeNode root=CreateTestTree();
-		Stack<TreeNode> stack=new Stack<TreeNode>();
+		Stack<int> stack=new Stack<int>();
 		int sum=0;
 		PrintPathWithSum(root, stack, sum, 22);
 	}
