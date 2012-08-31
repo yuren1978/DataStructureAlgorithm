@@ -20,14 +20,13 @@ bool IsNumber(const char *s)
         else if(spa) return false; //space inside of non-space make number invalid
         
         else if (*s >= '0' && *s <= '9')
-            num = true;
-		
+            num = true;		
         else if(*s == 'e')
         {
             //exponential sign already exist, or no number in front
             //then invalid number.
-            if(exp || !num) return false;
-            exp = true;
+           if(exp || !num) return false;
+           exp = true;
 			num = false; // need number after exponential sign, so make it false
         }
         else if(*s == '.')
