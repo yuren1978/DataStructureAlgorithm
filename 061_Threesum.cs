@@ -10,6 +10,29 @@ class ThreeSum
 	
 	
 	static List<List<int>> GetThreeSum(List<int> list){
+		List<List<int>> threeSumList=new List<List<int>>();
+		int count=list.Count;
+		list.Sort();
+		for(int i=0; i<count; i++){
+			int first=list[i];
+			int secondIndex=i+1;
+			int thirdIndex=count;
+			while(secondIndex<thirdIndex){
+				int second=list[secondIndex];
+				int third=list[thirdIndex];
+				if(first+second+third==0){
+					List<int> threeSum=new List<int> {first, second, third};
+					threeSumList.Add(threeSum);
+				}
+				else if(first+second+third<0){
+					secondIndex++;
+				}
+				else{
+					thirdIndex--;
+				}
+			}
+		}
+		return threeSumList;
 	}
 	
 	static void Main()
