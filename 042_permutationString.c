@@ -33,18 +33,24 @@ void permute(char *string_start, char *p) {
     char *swap;
     /* Go along the string, swapping each element in turn with p */
     for(swap = p; *swap; ++swap) {
+	   //printf("swap before=%c\n", *swap);	
       char tmp = *swap;
       *swap = *p;
+  		//printf("swap after=%c\n", *swap);	
       *p = tmp;
+
       permute(string_start, p+1);
+		
+		
       *p = *swap;
       *swap = tmp;
+		//printf("swap end=%c\n", *swap);
     }
   }
 }
 
 int main() {
-  char string[] = "aba";  
+  char string[] = "abc";  
   permute(string, string);
   return 0;	
 }

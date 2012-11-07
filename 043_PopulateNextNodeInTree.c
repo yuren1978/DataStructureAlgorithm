@@ -18,7 +18,7 @@ Node* CreateTreeFromArray(int* a, int start, int end)
 		int middle=(start+end)/2;
 		Node* node=malloc(sizeof(Node));
 		node->value=a[middle];	
-		node->left=	CreateTreeFromArray(a, start,middle-1);
+		node->left=CreateTreeFromArray(a, start,middle-1);
 		node->right=CreateTreeFromArray(a, middle+1,end);
 		node->next=0;
 		return node;

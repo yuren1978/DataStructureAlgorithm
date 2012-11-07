@@ -46,9 +46,9 @@ void Combination(const char* cur, vector<char>& result)
 
 int main(int argc, char *argv[]) {
 	const char* test="abc";
-	Combination2(test,strlen(test));
-	//vector<char> vec;
-	//Combination(test, vec);
+	//Combination2(test,strlen(test));
+	vector<char> vec;
+	Combination(test, vec);
 	//int a[]={1,2,3,4};
 	//CombinationNumber(a,4);
 	return 0;

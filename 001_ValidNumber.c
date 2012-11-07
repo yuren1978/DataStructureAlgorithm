@@ -16,31 +16,39 @@ bool IsNumber(const char *s)
 
     while(*s != '\0')
     {
-        if(*s == ' ') spa = true;
-        else if(spa) return false; //space inside of non-space make number invalid
-        
+        if(*s == ' ')
+		{
+			spa = true;
+        } 
+        else if(spa)
+		{
+			return false; //space inside of non-space make number invalid
+        } 
         else if (*s >= '0' && *s <= '9')
-            num = true;		
+		{
+           num = true;		
+        }	
         else if(*s == 'e')
         {
-            //exponential sign already exist, or no number in front
-            //then invalid number.
-           if(exp || !num) return false;
+            //exponential sign already exist, or no number in front, then invalid number.
+           if(exp || !num) 
+				return false;
            exp = true;
 			num = false; // need number after exponential sign, so make it false
         }
         else if(*s == '.')
         {
 			//no decimal sign after exponential sign and decimal sign
-            if(exp || dot) return false;
+            if(exp || dot) 
+				return false;
             dot = true;
         }
         else if(*s == '-' || *s == '+')
         {
 			// +/- sign should only follow exponential sign
-            if (*(s-1) != 'e') return false;
+            if (*(s-1) != 'e') 
+				return false;
         }
-
         else //any other characters would make number invalid 
             return false;
         ++s;

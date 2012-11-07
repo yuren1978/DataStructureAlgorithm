@@ -9,13 +9,17 @@
 
 int doubleSquare(unsigned int m) {
   int total = 0;
-  int iUpper = sqrt((double)m / 2.0);
+  int iUpper = sqrt((double)m );
+  printf("iUpper is %d\n", iUpper);	
   for (int i = 0; i <= iUpper; i++) {
+	printf("i is %d \n", i);
     unsigned int ii = i*i;
     for (int j = i; ; j++) {
       unsigned int sum = ii + j*j;
-      if (sum == m)
-        total++;
+      if (sum == m){
+			printf("%d and %d \n", i,j);
+	 		total++;
+       }       
       else if (sum > m)
         break;
     }
@@ -24,5 +28,6 @@ int doubleSquare(unsigned int m) {
 }
 
 int main(int argc, char *argv[]) {
-	assert(2==doubleSquare(25));
+	//assert(1==doubleSquare(10));
+	assert(2==doubleSquare(100));
 }

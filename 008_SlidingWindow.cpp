@@ -8,21 +8,45 @@
 
 using namespace std;
 
-
-vector<int> maxInWindows(const vector<int>& numbers, int windowSize)
-{
-	
-}
-
 template <class T>
 void display_container( const T& v ) {
 	// display elements using method of choice
 	std::copy(v.begin(), v.end(), ostream_iterator<typename T::value_type>(cout, "\n"));
 }
 
+
+vector<int> maxInWindows(int* numbers, int arraySize, int windowSize)
+{		
+	vector<int> maxInWindow;	
+	deque<int> indexDequeue;
+	if(arraySize>0)
+	{
+		indexDequeue.push_back(0);
+		for (int i=1;  i<arraySize; i++) 
+		{		
+			int backOfQueue=indexDequeue.back();
+			if(numbers[backOfQueue]<=numbers[i])				indexDequeue.pop_back();
+			if(!indexDequeue.empty())
+			{
+				int frontOfQueue=indexDequeue.front();
+				if(frontOfQueue<=i-windowSize)
+					indexDequeue.pop_front();
+			}
+			indexDequeue.push_back(i);
+			if(i-windowSize>=-1)
+			{
+				maxInWindow.push_back(numbers[indexDequeue.front()]);
+			}
+		}		
+	}
+	//display_container(maxInWindow);
+	return maxInWindow;
+}
+
+
 int main(int argc, char *argv[]) {
-	static const int arr[] = {2, 3, 4, 2, 6, 2, 5, 1};
-	vector<int> vec (arr, arr + sizeof(arr) / sizeof(arr[0]) );
-	vector<int> maxArrayInWindow= maxInWindows(vec,3);
+	int arr[] = {2, 3, 4, 2, 6, 2, 5, 1};
+	int arraySize=sizeof(arr)/sizeof(*arr);
+	vector<int> maxArrayInWindow= maxInWindows(arr,arraySize,3);
 	display_container(maxArrayInWindow);
 }

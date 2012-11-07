@@ -4,25 +4,13 @@
 #include <stdio.h>
 #define MAX_S_LENGTH 1024
 
-void removeCharacter(char* s, char compareChar){
-	int i,j;
-	j=0;
-	for (i = 0; s[i] != '\0'; i++) {
-		if(s[i]!=compareChar){
-			s[j]=s[i];
-			j++;
-		}
-	}
-	s[j]='\0';
-}
 
 void remove_a_double_b(char *s) {
-	
+		
 }
 
 int main(int argc, char *argv[]) {
 	char s[MAX_S_LENGTH]="ACDEBBAEF";
-	removeCharacter(s,'A');
 	//remove_a_double_b(s);
 	printf("%s\n", s);
 }
