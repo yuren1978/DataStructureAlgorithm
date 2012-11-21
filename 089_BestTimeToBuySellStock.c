@@ -4,39 +4,32 @@
 #include <stdlib.h>
 #include <assert.h>
 
-int BestTimeBuySendStock(int* array, int length, int* start, int* end)
+int maxProfit(vector<int> &prices)
 {
-	if(array==NULL||length==1){
-		start=0;
-		end=0;
-		return 0;
-	}
-	int startIndex=0;
-	int endIndex=1;
-	int minPrice=array[startIndex];
-	int maxProfit=array[endIndex]-array[startIndex];
-	for (int i=2; i<length; i++) {
-		if(array[i-1] < minPrice){//update min price if needed
-			minPrice=array[i-1];
-			startIndex=i-1;	
+	//get the differences between ajacent pair
+	vector<int> priceDiffrences;
+	int length=prices.size();
+	int diffLength=length-1;
+	for (int i=1; i<length; ++i) {
+		priceDiffrences=prices[i]-prices[i-1];
+	}	
+	int maxProfit=INT_MIN;
+	int sum=0;
+	for (int i=0; i<diffLength; ++i) {
+		sum+=priceDiffrences[i];
+		if(sum<0){
+			sum=0;
 		}
-		
-		if((array[i]-minPrice)>maxProfit){
-			maxProfit=array[i]-minPrice;
-			*start=startIndex;
-			*end=i;
-		}
+		if(sum>maxProfit){
+			maxProfit=sum;
+		}		
 	}
-	return maxProfit;	
 }
 
-int main(int argc, char *argv[]) {
-	int a[]={2, 4, 1, 16, 7, 5, 11, 9};
-	int length=sizeof(a)/sizeof(*a);
-	int start, end;
+int main(int argc, char *argv[]) {	
 	int maxProfit=BestTimeBuySendStock(a, length, &start, &end);
 	//printf("%d and %d and %d",start, end, maxProfit);
-	assert(start==2);
-	assert(end==3);
-	assert(maxProfit==15);
+	//assert(start==2);
+	//assert(end==3);
+	//assert(maxProfit==15);
 }
