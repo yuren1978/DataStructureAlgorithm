@@ -34,7 +34,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 	assert(isPalindrome(".,"));
-	//assert(isPalindrome("A man, a plan, a canal: Panama"));
+	assert(isPalindrome("A man, a plan, a canal: Panama"));
 	//assert(!isPalindrome("race a car"));
 }
 
