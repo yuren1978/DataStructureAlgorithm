@@ -87,17 +87,20 @@ public class BinaryTreeInOrderNonRecursive{
 	}
 
 	static void PreOrderNonRecursive(Node root){
-		Node current=root;
+		Console.WriteLine("Binary Tree InOrder NonRecursive");
+		if(root==null)
+			return;
 		Stack<Node> stack=new Stack<Node>();
-		while (current!=null||stack.Count>0) {
-			if(current!=null){
-				Console.Write(current.value+" ");
+		stack.Push(root);
+		while (stack.Count>0) {
+			Node current=stack.Pop();
+			Console.Write(current.value+" ");
+			if(current.right!=null){
 				stack.Push(current.right);
-				current=current.left;
 			}
-			else{
-				current=stack.Pop();
-			}
+			if(current.left!=null){
+				stack.Push(current.left);
+			}			
 		}
 	}
 
@@ -117,25 +120,24 @@ public class BinaryTreeInOrderNonRecursive{
 
 	static void Main(){
 		int[] a={1,2,3,4,5,6,7,8,9,10};
-		Console.WriteLine("Binary Tree InOrder NonRecursive");
 		Node root=CreateTreeFromArray(a, 0, a.Length-1);
 		//InOrderNonRecursive(root);
 		PreOrderNonRecursive(root);
 		//InOrderTravel(root);
-		InOrderIterator inOrderIterator=new InOrderIterator(root);
-		while(inOrderIterator.HasNext){
-			Node iteratorNode=inOrderIterator.GetNext();
-			Console.Write(iteratorNode.value+"-");
-		}
+		//InOrderIterator inOrderIterator=new InOrderIterator(root);
+		//while(inOrderIterator.HasNext){
+		//	Node iteratorNode=inOrderIterator.GetNext();
+		//	Console.Write(iteratorNode.value+"-");
+		//}
 		//PreOrderTravel(root);
 		//Console.WriteLine();
 		//PreOrderRecursive(root);
 		//PreOrderNonRecursive(root);
 		//InOrderNonRecursive(root);
-		PreOrderIterator preOrderIterator=new PreOrderIterator(root);
-		while (preOrderIterator.HasNext) {
-			Console.WriteLine("value is :"+ preOrderIterator.GetNext().value  );
-		}		
+		//PreOrderIterator preOrderIterator=new PreOrderIterator(root);
+		//while (preOrderIterator.HasNext) {
+			//Console.WriteLine("value is :"+ preOrderIterator.GetNext().value  );
+		//}		
 		//InOrderIterator inOrderIterator=new InOrderIterator(root);
 		//while (inOrderIterator.HasNext()) {
 		//	Console.WriteLine("value is :"+ inOrderIterator.Next.value  );
