@@ -12,6 +12,7 @@ using namespace std;
 //"A man, a plan, a canal: Panama" is a palindrome.
 //"race a car" is not a palindrome.
 
+//test palindroms
 	int getHighOrders(int number){
 		int step=10;
 		while(number/step>0){
