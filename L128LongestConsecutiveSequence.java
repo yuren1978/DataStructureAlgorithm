@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.Math;
 
-class LongestConsecutiveSequence {
+class L128LongestConsecutiveSequence {
 	
 	static int getCounts(Set<Integer> hs, int v, boolean asc){
 		int count=0;
@@ -30,7 +30,7 @@ class LongestConsecutiveSequence {
 			hs.add(v);
 		}  
 		
-		//printSet(hs);
+		printSet(hs);
 	
 		int ans=0;
 		for (int v:num) {
