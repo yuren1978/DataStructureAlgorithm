@@ -44,5 +44,6 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 	vector<string> vectors=letterCombinations("234");
+	cout<<"test"<<endl;
 	assert(27==vectors.size());
 }
