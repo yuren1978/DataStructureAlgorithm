@@ -20,16 +20,16 @@ using namespace std;
 
 void generateParenthesis(int startStock, int endStock, string s,  vector<string>& vectors){
 	if(startStock==0 && endStock==0){
-		cout<<"complet string : "+ s<<endl;
+		//cout<<"complet string : "+ s<<endl;
 		vectors.push_back(s);
 		return;
 	}
 	if(startStock>0){
-		cout<<"left: "+ s+"("<<endl;
+		//cout<<"left: "+ s+"("<<endl;
 		generateParenthesis(startStock-1,endStock+1, s+"(", vectors);
 	}
 	if(endStock>0){
-		cout<<"right: "+s+")"<<endl;
+		//cout<<"right: "+s+")"<<endl;
 		generateParenthesis(startStock,endStock-1, s+")", vectors);
 	}
 } 

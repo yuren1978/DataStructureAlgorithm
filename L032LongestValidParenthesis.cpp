@@ -2,44 +2,47 @@
 //Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
 //For "(()", the longest valid parentheses substring is "()", which has length = 2.
 //Another example is ")()())", where the longest valid parentheses substring is "()()", which has length = 4.
-
-//从左到右扫一边，再从右到左扫一边，O（n） time O(1) space
-
+#include <algorithm>
 #include <iostream>
 #include <stack>
 #include <cassert>
+#include <utility>
 
 using namespace std;
 
 int longestValidParentheses(string s) {
     // Start typing your C/C++ solution below
     // DO NOT write int main() function
-    const char* p=s.c_str();
-	const char* pStart=p;
+   	std::stack<pair<char,int> > parenStack;
 	int maxLength=0;
-	stack<const char*> pointerStack;
-	while (*p!='\0') {
-		if(*p=='('){
-			pointerStack.push(p);
+	int stringLength=s.size();
+	int currentStart=0;
+	for (int i=0; i<stringLength; ++i) {
+		char c=s[i];
+		if('('==c){
+			parenStack.push(make_pair(c,i));
 		}
-		else {
-			if(!pointerStack.empty() && *pointerStack.top()=='('){
-				pointerStack.pop();	
-				int currentLength=pointerStack.empty()?p-pStart+1:p-pointerStack.top();
-				if(currentLength>maxLength){
-					maxLength=currentLength;
-				}
-					
+		else {//starts with ')'
+			if(parenStack.empty()){
+				currentStart=i+1;		
 			}
 			else {
-				pointerStack.push(p);	
-			}
+				pair<char,int> topOfStack=parenStack.top();
+				parenStack.pop();
+				if('('==topOfStack.first){//match found
+					if(parenStack.empty()){
+						maxLength=	max(maxLength, i-currentStart+1);
+					}
+					else {
+						maxLength=	max(maxLength, i-parenStack.top().second);					
+					}			
+				}
+			}		
 		}
-		p++;
-	}    
+	}
 	return maxLength;
 }
 
 int main(int argc, char *argv[]) {
-	assert(1==longestValidParentheses(")"))	;
+	assert(4==longestValidParentheses("((())"));
 }
