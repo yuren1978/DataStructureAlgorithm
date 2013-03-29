@@ -33,6 +33,7 @@ using namespace std;
 
 
 int main(int argc, char *argv[]) {
+	cout<<"Test Palindrome"<<endl;
 	assert(isPalindrome(".,"));
 	assert(isPalindrome("A man, a plan, a canal: Panama"));
 	//assert(!isPalindrome("race a car"));

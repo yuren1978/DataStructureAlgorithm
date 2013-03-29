@@ -79,6 +79,7 @@ class L60PermulationString {
 	}
 	
 	public static void main(String[] args) {
+		//printArray(new char[]{'a','b','c'});
 		permute( new char[]{'a','b','c'}, 0 );
 		//permute2("abc");
 	}
