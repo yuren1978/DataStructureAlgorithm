@@ -1,7 +1,7 @@
 //http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/
 import java.util.*;
 
-class L60PermulationString {
+class L046PermulationString {
 	
 	
 	private static void permute2Recursive(String prefix, String str) {
