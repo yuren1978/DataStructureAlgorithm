@@ -118,12 +118,22 @@ public class BinaryTreeInOrderNonRecursive{
 		}		
 	}
 
+	static void PreOrderTravel(Node root){
+		if(root!=NULL){
+			Console.Write(root.value);
+			Console.Write(" ");
+			PreOrderTravel(root.left);
+			PreOrderTravel(root.right);
+		}
+		Console.Write(" ");
+	}
+
 	static void Main(){
 		int[] a={1,2,3,4,5,6,7,8,9,10};
 		Node root=CreateTreeFromArray(a, 0, a.Length-1);
 		//InOrderNonRecursive(root);
-		PreOrderNonRecursive(root);
-		//InOrderTravel(root);
+		//PreOrderNonRecursive(root);
+		PreOrderTravel(root);
 		//InOrderIterator inOrderIterator=new InOrderIterator(root);
 		//while(inOrderIterator.HasNext){
 		//	Node iteratorNode=inOrderIterator.GetNext();
