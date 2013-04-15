@@ -31,7 +31,7 @@ class Sqrt {
 			if(midSqr==a) 
 				return mid;//we find the exact sqrt value!
 			else if(midSqr<a) 
-					start = mid;//we shift our focus to bigger half
+				start = mid;//we shift our focus to bigger half
 			else 
 				end = mid;//shift focus to smaller half
 		}
