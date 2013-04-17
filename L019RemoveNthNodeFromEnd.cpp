@@ -1,4 +1,4 @@
-#include <iostream>
+
 
 /**
  * Definition for singly-linked list.
@@ -9,37 +9,40 @@
  * };
  */
 
-ListNode *removeNthFromEnd(ListNode *head, int n) {
+class Solution {
+public:
+    ListNode *removeNthFromEnd(ListNode *head, int n) {
         // Start typing your C/C++ solution below
         // DO NOT write int main() function
-		if(0==n)
-			return head;
-
-		ListNode* originalHead=head;
-        ListNode* nodeFromBeginning=head;
-        while(NULL!=nodeFromBeginning && n>0){
-        	nodeFromBeginning=nodeFromBeginning->next;
-        	--n;
+        if(head==NULL) return NULL;
+        
+        ListNode* nFromBeginning=head;
+        int i=0;
+        while(i<n && nFromBeginning!=NULL){
+            nFromBeginning=nFromBeginning->next;
+            i++;
         }
-
-        if(NULL==nodeFromBeginning){
-        	if(n>0){
-        		return head;
-        	}
-        	else{
-        		head=head->next;
-        		delete originalHead;
-        		return head;
-        	}
+              
+        if(nFromBeginning==NULL) {
+            if(i==n){
+                ListNode* next=head->next;
+                delete head;
+                return next;
+            }
+            else{
+                return head;
+            }
         }
-
-        while(NULL!=nodeFromBeginning->next){
-        	nodeFromBeginning=nodeFromBeginning->next;
-        	head=head->next;
+        
+        ListNode* current=head;
+        while(nFromBeginning->next!=NULL){
+            nFromBeginning=nFromBeginning->next;
+            current=current->next;
         }
-
-        ListNode* nodeBeDeleted=head->next;
-        head->next=nodeBeDeleted->next;
-        delete nodeBeDeleted;
-        return originalHead;
- }
+        
+        ListNode* nodeDelete=current->next;
+        current->next=nodeDelete->next;
+        delete nodeDelete;
+        return head;
+    }
+};

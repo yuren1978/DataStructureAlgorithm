@@ -34,7 +34,8 @@ vector<string> letterCombinations(string digits) {
     // DO NOT write int main() function
 	string s;
     vector<string> stringCombinations;
-	letterCombine(digits, stringCombinations, 0,  s);	return  stringCombinations;   
+	letterCombine(digits, stringCombinations, 0,  s);	
+	return  stringCombinations;   
 }
 
 int main(int argc, char *argv[]) {
