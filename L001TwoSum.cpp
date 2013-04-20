@@ -25,36 +25,26 @@ int FindPosition(int* copyArray, int size, int number){
         // DO NOT write int main() function
 		 
 		vector<int> indexes;
-		int start=0;
-		int size=numbers.size();
-		int end=size-1;
-		int* copyArray=new int[size];
-		copy(numbers, copyArray, size);
-		sort(numbers.begin(), numbers.end());
-       
-		 while (start<end) {
-			if(numbers[start]+numbers[end]<target){
-				++start;
-			}
-			else if (numbers[start]+numbers[end]>target) {
-				--end;
-			}
-			else {//target find
-				int position1=FindPosition(copyArray, size, numbers[start]);
-				int position2=FindPosition(copyArray, size, numbers[end]);
-				assert(position1>=0);
-				assert(position2>=0);
-				if(position1<position2){
-					indexes.push_back(position1+1);					indexes.push_back(position2+1);
-				}
-				else {
-					indexes.push_back(position2+1);					indexes.push_back(position1+1);
-				}
-				break;
-			}
-		}
-		delete[] copyArray;
-		return indexes;
+        map<int, int> numberIndexHash;
+        int size=numbers.size();
+        for(int i=0; i<size; ++i){
+            if(numberIndexHash.find(numbers[i])==numberIndexHash.end()){
+                numberIndexHash[target-numbers[i]]= i ;
+            }
+            else{
+                int currentIndex=i;
+                int otherIndex=numberIndexHash[numbers[i]];
+                if(currentIndex<otherIndex){
+                    indexes.push_back(currentIndex+1);
+                    indexes.push_back(otherIndex+1);
+                }
+                else{
+                    indexes.push_back(otherIndex+1);
+                    indexes.push_back(currentIndex+1);
+                }
+            }
+        }
+        return indexes;
     }
 
 int main(int argc, char *argv[]) {

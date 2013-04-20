@@ -1,37 +1,37 @@
-#include <iostream>
-#include <cassert>
-
-using namespace std;
-
-double positivePow(double x, int n){
-	if(n==1)
-		return x;
-	
-	
-	double result=x;	
-	int s=1;	
-	do {
-		result=result*result;
-		s=s*2;
-	}while ((s*2)<n) 
-	
-	
-		
-	return result;	
-}
-
-
-double pow(double x, int n){
-	bool negative=false;
-	if(n==0) return 1;
-	if(n<0) negative=true;
-	
-	double result=negative? positivePow(x,-n):positivePow(x,n);
-	
-	return  negative? (1.0)/(result): result;
-	
-}
-
-int main(int argc, char *argv[]) {
-	
-}
+class Solution {
+public:
+    double pow(double x, int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        if(x==0){
+            if(n==0) {
+                 return 1;
+            }               
+            else{
+                 return 0;
+            } 
+        }
+        
+        if(n==0){
+            return 1;
+        }
+        
+        bool negative=false;
+        if(n<0){
+            negative=true;
+            n=-n;            
+        }
+        
+        double base=x;
+        double result=1;
+        while(n>0){
+            if(n & 1){
+                result=result*base;
+            }
+            
+            base=base*base;
+            n=n>>1;
+        }
+        return negative? 1/result : result;
+    }
+};
