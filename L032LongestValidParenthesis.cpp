@@ -13,30 +13,28 @@ using namespace std;
 int longestValidParentheses(string s) {
     // Start typing your C/C++ solution below
     // DO NOT write int main() function
-   	std::stack<pair<char,int> > parenStack;
+   	std::stack<int > lefts;
 	int maxLength=0;
 	int stringLength=s.size();
 	int currentStart=0;
 	for (int i=0; i<stringLength; ++i) {
 		char c=s[i];
 		if('('==c){
-			parenStack.push(make_pair(c,i));
+			lefts.push(i);
 		}
 		else {//starts with ')'
-			if(parenStack.empty()){
-				currentStart=i+1;		
+			if(lefts.empty()){
+				currentStart=i;		
 			}
 			else {
-				pair<char,int> topOfStack=parenStack.top();
-				parenStack.pop();
-				if('('==topOfStack.first){//match found
-					if(parenStack.empty()){
-						maxLength=	max(maxLength, i-currentStart+1);
-					}
-					else {
-						maxLength=	max(maxLength, i-parenStack.top().second);					
-					}			
+				lefts.pop();
+				if(lefts.empty()){
+					maxLength=	max(maxLength, i-currentStart);
 				}
+				else {
+					maxLength=	max(maxLength, i-lefts.top());					
+				}			
+			
 			}		
 		}
 	}

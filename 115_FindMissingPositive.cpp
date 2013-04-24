@@ -19,9 +19,9 @@ int firstMissingPositive2(int A[], int n) {
      for(int i=0;i<n;i++){
         int target=A[i];
         while(target>0 && target<=n && target!=A[target-1]){           
-            int new_targeet = A[target-1];
+            int newTarget = A[target-1];
             A[target-1] = target;
-            target = new_targeet;
+            target = newTarget;
         }
         printArray(A, n);
     }
