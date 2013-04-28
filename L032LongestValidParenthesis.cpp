@@ -16,7 +16,7 @@ int longestValidParentheses(string s) {
    	std::stack<int > lefts;
 	int maxLength=0;
 	int stringLength=s.size();
-	int currentStart=0;
+	int currentStart=-1;
 	for (int i=0; i<stringLength; ++i) {
 		char c=s[i];
 		if('('==c){

@@ -1,43 +1,24 @@
-#include <iostream>
-#include <cassert>
-
-using namespace std;
-
-int search(int A[], int n, int target) {
-   // Start typing your C/C++ solution below
-   // DO NOT write int main() function
-	int start=0; int end=n-1;
-	while (start<end) {
-		//printf("start %d end %d\n", start, end);
-		int middle=(start+end)/2;
-		if(target==A[middle]){
-			return middle;
-		}
-		else {
-			if(A[middle]<A[end]){
-				if(target>A[middle] && target <=A[end]){
-					start=middle+1;
-				}
-				else {
-					end=middle-1;
-				}
-			}
-			else {
-				if(target<A[middle] && target>=A[start]){
-					end=middle-1;
-				}
-				else{
-					start=middle+1;
-				}
-			}
-		}		
-	}
-	if(target==A[start])
-		return start;
-	return -1;     
-}
-
-int main(int argc, char *argv[]) {
-	int A[]={4,5,6,7,0,1,2}; 
-	assert(4==search(A, 7, 0));
-}
+class Solution {
+public:
+    bool search(int A[], int n, int key) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+          int l = 0, r = n - 1;
+        while (l <= r) {
+            int m = (r + l)/2;
+            if (A[m] == key) return true; //return m in Search in Rotated Array I
+            if (A[l] < A[m]) { //left half is sorted
+                if (A[l] <= key && key <= A[m])
+                    r = m - 1;
+                else
+                    l = m + 1;
+            } else if (A[l] > A[m]) { //right half is sorted
+                if (A[m] <= key && key <= A[r])
+                    l = m + 1;
+                else
+                    r = m - 1;
+            } else l++;
+        }
+        return false;
+    }
+};
