@@ -10,49 +10,57 @@ struct Interval {
     Interval() : start(0), end(0) {}
     Interval(int s, int e) : start(s), end(e) {}
 };
-
-int CompareInterval(const Interval& interval1, Interval& interval2){
-	if(interval1.end<interval2.start){
-		return -1;
-	}
-	else if(interval1.start>interval2.end){
-		return 1;
-	}
-	else {
-		interval2.start=interval1.start<interval2.start?interval1.start:interval2.start;
-		interval2.end=interval1.end>interval2.end?interval1.end:interval2.end;
-		return 0;
-	}
-}	
-
+  bool CompareInterval(Interval& currentInterval, Interval& newInterval){
+        if(currentInterval.end<newInterval.start){
+            return -1;
+        }
+        else if(currentInterval.start>newInterval.end){
+            return 1;
+        }
+        else{
+            newInterval.start=currentInterval.start<newInterval.start?currentInterval.start:newInterval.start;
+            newInterval.end=currentInterval.end>newInterval.end?currentInterval.end:newInterval.end;
+            
+            return 0;
+        }
+    }
+ 
+ 
  vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
-    vector<Interval> mergedIntervals;
-	 int size=intervals.size();          
-	 
-	 for (int i=0; i<size; ++i) {
-		Interval current=intervals[i];
-		int compareResult=CompareInterval(newInterval, current);
-        if(compareResult<0){
-			mergedIntervals.push_back(newInterval);
-            for(int j=i; j<size; ++j){
-                Interval current=intervals[j];
-    	        mergedIntervals.push_back(current);
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        //sort(intervals.begin(), intervals.end(), sortI);
+        vector<Interval> mergeIntervals;
+        int size=intervals.size();
+        bool newIntervalInserted=false;
+		cout<<"test"<<endl;
+        for(int i=0; i<size; i++){
+            Interval currentInterval=intervals[i];
+            if(CompareInterval(currentInterval, newInterval)<0){
+                mergeIntervals.push_back(currentInterval);
+			    cout<<"push current"<<endl;
             }
-			return mergedIntervals;
-			//add the remaining intervals.
-		}else if(compareResult>0){
-			mergedIntervals.push_back(current);
-		}
-        
-        
-	}
-    
-        mergedIntervals.push_back(newInterval);
-        return mergedIntervals;
-
-     
-}
+            else if(CompareInterval(currentInterval, newInterval)>0){
+                if(!newIntervalInserted){
+                    mergeIntervals.push_back(newInterval);
+                    newIntervalInserted=true;
+                }
+                 mergeIntervals.push_back(currentInterval);
+            }
+        }
+        if(!newIntervalInserted){
+               mergeIntervals.push_back(newInterval);
+				cout<<"push new"<<endl;
+        }
+        return mergeIntervals;
+    }
 
 int main(int argc, char *argv[]) {
+	vector<Interval> intervals;
+	intervals.push_back(*(new Interval(1,5)));
+	vector<Interval> inserted= insert(intervals, *(new Interval(6,8)));
+	for (int i=0; i<inserted.size(); i++) {
+		cout<<inserted[i].start<<endl;
+	}
 	
 }

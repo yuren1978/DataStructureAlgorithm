@@ -10,7 +10,7 @@ void numDistinct(string S, string T, int sStart, int tIndex, int sSize, int tSiz
      // DO NOT write int main() function
 
     if(sStart==sSize && tIndex<tSize)
-     {
+     {//no match found.
           return;
  	 }
 
