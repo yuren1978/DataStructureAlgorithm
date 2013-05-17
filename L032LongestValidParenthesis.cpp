@@ -29,9 +29,11 @@ int longestValidParentheses(string s) {
 			else {
 				lefts.pop();
 				if(lefts.empty()){
+					cout<<"stack empty"<<endl;
 					maxLength=	max(maxLength, i-currentStart);
 				}
 				else {
+					cout<<"stack empty"<<endl;
 					maxLength=	max(maxLength, i-lefts.top());					
 				}			
 			
@@ -42,5 +44,5 @@ int longestValidParentheses(string s) {
 }
 
 int main(int argc, char *argv[]) {
-	assert(4==longestValidParentheses("((())"));
+	assert(4==longestValidParentheses("()()"));
 }

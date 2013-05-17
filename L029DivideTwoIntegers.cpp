@@ -20,40 +20,36 @@ using namespace std;
 
 int Divide(int dividend, int divisor) 
 {
-	  long dividend_long=dividend;
-	    long divisor_long=divisor;
-	    bool isNegative=false;
-	   
-	    if(dividend_long<0)
-	    {
-	        isNegative=true;
-	        dividend_long=-dividend_long;
-	    }
-	   
-	    if(divisor_long<0)
-	    {
-	        isNegative=!isNegative;
-	        divisor_long=-divisor_long;
-	    }
-	   
-	    int quotient=0;       
-	    while(dividend_long>=divisor_long)
-	    {
-	        long sum=divisor_long;
-	        int digit=1;
-	        while((sum+sum)<=dividend_long)
-	        {
-	            sum+=sum;
-	            digit<<=1;
+			int sign = 1;
+	        if (dividend<0){sign = -sign;}
+	        if (divisor<0){sign = -sign;}
+	         
+	        unsigned long long tmp = abs((long long)dividend);
+	        unsigned long long tmp2 = abs((long long)divisor);
+	                
+	        unsigned long c = 1;
+	        while (tmp>tmp2){
+	            tmp2 = tmp2<<1;    
+	            c = c<<1;
 	        }
-	        quotient+=digit;
-	        dividend_long-=sum;
-	    }
-	   
-	    if(isNegative)
-	        quotient=-quotient;
-	   
-	    return quotient; 
+	
+			printf("c is %d and tmp2 is %d\n", c, tmp2);         
+	
+	        int res = 0;
+	        while (tmp>=abs((long long)divisor)){
+	            
+				while (tmp>=tmp2){//add the result
+					 printf("tmp is %d \n", tmp);
+	                tmp -= tmp2;
+	                res += c;
+	            }
+				
+	            tmp2=tmp2>>1;
+	            c=c>>1;    
+	        }
+	         
+	        return sign*res;
+	
 }	
 
 
@@ -61,8 +57,8 @@ int Divide(int dividend, int divisor)
 
 int main(int argc, char** argv)
 {
-    int dividend = 2147483647;
-	int divisor = 2;
+    int dividend = 15;
+	int divisor = 3;
     printf("%d\n", Divide(dividend,divisor));
     return 0;
 }

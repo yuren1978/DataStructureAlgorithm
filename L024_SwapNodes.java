@@ -20,6 +20,7 @@ public class Solution {
         while(n2!=null && n2.next!=null){
             ListNode temp = n2.next.next; //store third node before changing the position.
             
+			//n1 and n2 don't change
             n2.next.next=n1.next;   //let second node point to first node
             n1.next=n2.next;        //let helper node point to second node. 
             n2.next=temp;           //let first node point to the third node

@@ -11,35 +11,20 @@ struct ListNode {
 ListNode *swapPairs(ListNode *head) {
     // Start typing your C/C++ solution below
     // DO NOT write int main() function
-	if(NULL==head || NULL==head->next){
-		return head;
-	}        
-	ListNode* oddHead=head; ListNode* oddTail=head;
-	ListNode* evenHead=head->next; ListNode* evenTail=head->next;
-	while (NULL!=evenTail) {
-		ListNode* oddNext=evenTail->next;
-		ListNode* evenNext=oddNext!=NULL ? oddNext->next:NULL;
+	ListNode helper=new ListNode(0);
+	helper->next=head;
+	ListNode* n1=helper;
+	ListNode* n2=head;
+	while (n2!=NULL && n2->next!=NULL) {
+		ListNode* temp=n2->next->next;
+		n2->next->next=n1->next;
+		n1->next=n2->next;
+		n2->next=temp;
 		
-		oddTail->next=oddNext;
-		evenTail->next=evenNext;
-		
-		oddTail=oddNext;
-		evenTail=evenNext;
+		n1=n2;
+		n2=n2->next;
 	}
-	
-	//now we need connect them back
-	ListNode* returnHead=evenHead;
-	
-	while (NULL!=evenHead) {
-		ListNode* oddNext=oddHead->next;
-		ListNode* evenNext=evenHead->next;
-		evenHead->next=oddHead;
-		oddHead->next=NULL!=evenNext?evenNext:oddNext;
-		
-		evenHead=evenNext;
-		oddHead=oddNext;
-	}	
-	return returnHead;
+	return helper->next;
 }
 
 int main(int argc, char *argv[]) {
