@@ -6,8 +6,6 @@
 *.bak
 *.ncb
 *.log 
-*.exe
-*.class
 *.DS_Store
 [Tt]humbs.db 
 _ReSharper.*
