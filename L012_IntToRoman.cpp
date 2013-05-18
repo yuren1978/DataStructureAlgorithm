@@ -1,5 +1,6 @@
 //http://www.mitbbs.com/article_t/JobHunting/32190019.html
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -24,5 +25,6 @@ string intToRoman(int num) {
 
 
 int main(int argc, char *argv[]) {
-	
+	string romanLetter= intToRoman(1000);
+    cout<<romanLetter<<endl;
 }

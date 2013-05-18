@@ -1,11 +1,12 @@
 
 
-class Sqrt {
+class L069Sqrt {
 	
 	public static void main(String[] args){
 		System.out.println(sqrt(25.0));
 		System.out.println(sqrt(0.0625));
-	}		
+	}	
+	
 	//define method header
 	static double sqrt(double a)
 	{
@@ -38,7 +39,8 @@ class Sqrt {
 		
 		//if we did not find exact sqrt value, we return the approxiated value with the defined precision
 		return (start+end)/2;
-	}	
+	}
+	
 }
 
 

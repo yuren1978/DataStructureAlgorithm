@@ -5,6 +5,26 @@
 using namespace std;
 
 
+ void subsets(vector<int> &S, int startIndex, vector<int>& v , vector<vector<int> >& results){
+        results.push_back(v);
+        
+        for(int i=startIndex; i<S.size(); i++){
+            v.push_back(S[i]);
+            subsets(S, i+1, v, results);
+            v.pop_back();
+        }
+    }
+
+    vector<vector<int> > subsets(vector<int> &S) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        sort(S.begin(), S.end());
+        vector<vector<int> > results;
+        vector<int> v;
+        subsets(S, 0 , v, results);
+        return results;
+    }
+
 void printVector(const vector<int>& v){
 	int size=v.size();
 	for (int i=0; i<size; i++) {

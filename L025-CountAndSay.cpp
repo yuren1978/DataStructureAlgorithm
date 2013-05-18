@@ -2,6 +2,7 @@
 //Note that the the ascii code of '0' is 48, to convert the int to char we can use "char chr = i + '0';"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
