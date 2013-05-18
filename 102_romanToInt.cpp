@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>
+#include <map>
+
 
 using namespace std;
 
@@ -25,5 +28,5 @@ int romanToInt(string s) {
 
 
 int main(int argc, char *argv[]) {
-	
+	cout<<romanToInt("IV")<<endl;
 }
