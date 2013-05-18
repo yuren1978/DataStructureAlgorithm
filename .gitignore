@@ -11,9 +11,9 @@
 _ReSharper.*
 .o
 o.obj
-.lib
-.so
-.dll
-.exe
+*.lib
+*.so
+*.dll
+*.exe
 a.out
 RemoveSpaceFromString
