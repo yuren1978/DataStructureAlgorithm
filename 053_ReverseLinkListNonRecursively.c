@@ -1,3 +1,7 @@
+#include <cstdio>
+#include <cstdlib>
+
+
 typedef struct node
 {
 	int value;
@@ -7,10 +11,11 @@ typedef struct node
 Node* MakeListFromArray(int* a, int start, int end){
 	Node* head=0;
 	for (int i=start; i<end; i++){
-		Node* node=malloc(sizeof(Node));
+		Node* node=(Node*) malloc(sizeof(Node));
 		node->value=a[i];
 		if(head==0){
 			head=node;
+			head->next=NULL;
 		}
 		else {
 			node->next=head;
@@ -21,33 +26,36 @@ Node* MakeListFromArray(int* a, int start, int end){
 }
 
 void PrintList(Node* head){
-	printf("\n" );
+	printf("\n");
 	Node* travelNode=head;
-	while(travelNode!=0){
+	while(travelNode!=NULL){
 		printf("%d\t", travelNode->value);
 		travelNode=travelNode->next;
 	}
 }
 
 Node* ReverseList(Node* head){
-	Node* firstNode=head;
-	Node* secondNode=firstNode!=0?firstNode->next:0;
-	Node* thirdNode=secondNode!=0?secondNode->next:0;
-	head->next=0; 
-	while(secondNode!=0){
-		secondNode->next=firstNode;
-		firstNode=secondNode;
-		secondNode=thirdNode;
-		thirdNode=secondNode!=0?secondNode->next:0;
+	if(head==NULL || head->next==NULL)
+		return head;
+	Node* prev=(Node*) malloc(sizeof(Node));
+	prev->value=0;
+	prev->next=head;
+	Node* current=prev->next;
+	while(current->next!=NULL){
+		Node* temp=current->next;
+		current->next=temp->next;
+		temp->next=prev->next;
+		prev->next=temp;
 	}
-	return firstNode;
+	return prev->next;
 }
 
 int main(int argc, char const *argv[])
 {
-	int a[]={0,1,2,3,4,5,6,7,8,9};
+	int a[]={0,1};
 	int length=sizeof(a)/sizeof(*a);
 	Node* head= MakeListFromArray(a, 0, length);
+	//printf("%d\n", head->next->value);
 	PrintList(head);
 	Node* reverseHead=ReverseList(head);
 	PrintList(reverseHead);
