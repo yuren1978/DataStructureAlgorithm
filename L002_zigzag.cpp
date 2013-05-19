@@ -12,9 +12,6 @@ using namespace std;
         int zigsize = 2 * nRows - 2;
         for(int i = 0; i < nRows; ++i) {
             for(int base = i; base<s.size() ;base += zigsize) {
-                //if(base >= s.size())
-                //    break;
-                ret.append(1,s[base]);
                 if(i > 0 && i < nRows - 1) {
                     //middle need add ziggggging char
                     int ti = base + zigsize - 2 * i;
