@@ -9,6 +9,7 @@ public class Solution {
         head = prev;
         
         ListNode cur=prev.next;
+
         while(cur!=null){
             int counter = k;
             while(cur!=null && counter>1){
