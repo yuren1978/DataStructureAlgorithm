@@ -17,7 +17,6 @@ string intToRoman(int num) {
     romanMap[50] = "L";
     romanMap[40] = "XL";
     romanMap[10] = "X";
-    
 
     romanMap[9] = "IX";
     romanMap[5] = "V";

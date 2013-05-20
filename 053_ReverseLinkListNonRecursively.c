@@ -41,12 +41,15 @@ Node* ReverseList(Node* head){
 	prev->value=0;
 	prev->next=head;
 	Node* current=prev->next;
+
 	while(current->next!=NULL){
 		Node* temp=current->next;
 		current->next=temp->next;
 		temp->next=prev->next;
 		prev->next=temp;
 	}
+
+
 	return prev->next;
 }
 
