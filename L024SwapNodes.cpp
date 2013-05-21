@@ -11,18 +11,19 @@ struct ListNode {
 ListNode *swapPairs(ListNode *head) {
     // Start typing your C/C++ solution below
     // DO NOT write int main() function
-	ListNode helper=new ListNode(0);
-	helper->next=head;
-	ListNode* n1=helper;
-	ListNode* n2=head;
-	while (n2!=NULL && n2->next!=NULL) {
-		ListNode* temp=n2->next->next;
-		n2->next->next=n1->next;
-		n1->next=n2->next;
-		n2->next=temp;
+	ListNode* prev=new ListNode(0);
+	prev->next=head;
+	ListNode* helper=prev;
+	ListNode* current=head;
+	while (current!=NULL && current->next!=NULL) {
 		
-		n1=n2;
-		n2=n2->next;
+		ListNode* temp=current->next->next;
+		current->next->next=prev->next;
+		prev->next=current->next;
+		current->next=temp;
+		
+		prev=current;
+		current=current->next;
 	}
 	return helper->next;
 }

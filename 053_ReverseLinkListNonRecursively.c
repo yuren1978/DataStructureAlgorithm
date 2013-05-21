@@ -48,8 +48,7 @@ Node* ReverseList(Node* head){
 		temp->next=prev->next;
 		prev->next=temp;
 	}
-
-
+	
 	return prev->next;
 }
 
