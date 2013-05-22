@@ -6,6 +6,7 @@
 	
 	class Solution {
 	public:
+        //Test if the duplicate exits
     bool noswap(int k, int i, const vector<int> num){
         for (int j=k;j<i;j++){
             if (num[j]==num[i]){
