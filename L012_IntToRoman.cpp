@@ -6,21 +6,30 @@ using namespace std;
 
 //Greedy.
 string intToRoman(int num) {
-    romanMap[1000] = "M";
     
+    romanMap[1000] = "M";
     romanMap[900] = "CM";
+    
+
     romanMap[500] = "D";
     romanMap[400] = "CD";
-    romanMap[100] = "C";
     
+
+    romanMap[100] = "C";
     romanMap[90] = "XC";
+    
+
     romanMap[50] = "L";
     romanMap[40] = "XL";
+    
     romanMap[10] = "X";
-
     romanMap[9] = "IX";
+    
+
     romanMap[5] = "V";
     romanMap[4] = "IV";
+    
+
     romanMap[1] = "I";
 
     string s;
