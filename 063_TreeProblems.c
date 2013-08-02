@@ -14,6 +14,8 @@ typedef struct stackNode{
 	struct stackNode* next;
 } StackNode;
 
+TreeNode* pre=NULL;
+
 void Push(StackNode** stackHead, TreeNode* treeNode){
 	StackNode* newNode=malloc(sizeof(StackNode));
 	newNode->node=treeNode;
@@ -91,6 +93,21 @@ void PreOrderTravel(TreeNode* node){
 	}
 }
 
+void InOrderTravel(TreeNode* node){
+	if(node==NULL)
+		return;
+
+	InOrderTravel(node->left);
+
+	if(node==NULL) {pre=node;}
+	else{
+		
+	}
+
+	InOrderTravel(node->right);
+
+}
+
 void PreOrderNonRecursive(TreeNode* root){
 	StackNode* stackHead=0;
 	TreeNode* treeNode=root;
@@ -113,11 +130,11 @@ void PreOrderNonRecursive(TreeNode* root){
 int main(int argc, char *argv[]) {
 	int a[]={1,2,3,4,5,6,7};
 	TreeNode* root=CreateTreeFromArray(a,7,0);
-	printf("\n Pre Order Travel ");
-	PreOrderTravel(root);
-	printf("\n Connect right sibling");
-	ConnectRightSibling(root);
-	PrintRightSibling(root);
-	printf("\n Pre Order Travel NonRecursive ");
-	PreOrderNonRecursive(root);
+	//printf("\n Pre Order Travel ");
+	//PreOrderTravel(root);
+	//printf("\n Connect right sibling");
+	//ConnectRightSibling(root);
+	//PrintRightSibling(root);
+	//printf("\n Pre Order Travel NonRecursive ");
+	//PreOrderNonRecursive(root);
 };

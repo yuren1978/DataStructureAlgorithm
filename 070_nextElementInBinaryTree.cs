@@ -37,13 +37,13 @@ public class NextElementInBinaryTree{
 				}
 				
 				current=stack.Pop();
-							if(currentFound){
-						return current;
-					}		
-					if(current.value==value)
-						currentFound=true;
-					Console.Write(current.value+" ");
-					current=current.right;
+				if(currentFound){
+					return current;
+				}		
+				if(current.value==value)
+					currentFound=true;
+				Console.Write(current.value+" ");
+				current=current.right;
 				
 			}
 			return null;

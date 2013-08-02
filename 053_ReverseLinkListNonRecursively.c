@@ -37,10 +37,11 @@ void PrintList(Node* head){
 Node* ReverseList(Node* head){
 	if(head==NULL || head->next==NULL)
 		return head;
-	Node* prev=(Node*) malloc(sizeof(Node));
-	prev->value=0;
-	prev->next=head;
-	Node* current=prev->next;
+
+	Node* helper=(Node*) malloc(sizeof(Node));
+	helper->next=head;
+
+	Node* prev=helper; Node* current=head;
 
 	while(current->next!=NULL){
 		Node* temp=current->next;
@@ -48,16 +49,16 @@ Node* ReverseList(Node* head){
 		temp->next=prev->next;
 		prev->next=temp;
 	}
-	
-	return prev->next;
+
+	return helper->next;
+
 }
 
 int main(int argc, char const *argv[])
 {
-	int a[]={0,1};
+	int a[]={0,1,2};
 	int length=sizeof(a)/sizeof(*a);
 	Node* head= MakeListFromArray(a, 0, length);
-	//printf("%d\n", head->next->value);
 	PrintList(head);
 	Node* reverseHead=ReverseList(head);
 	PrintList(reverseHead);

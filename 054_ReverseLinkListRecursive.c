@@ -32,25 +32,20 @@ void PrintList(Node* head){
 }
 
 Node* ReverseList(Node* head){
-	
-	if(head==0)
-		return NULL;
+	if(NULL==head || NULL==head->next)
+		return head;
 
-	if(head->next==NULL){
-		return head;	
-	}
-	
-	Node* tempNextNode=head->next;
-	Node* reverseHead=ReverseList(head->next);
-	tempNextNode->next=head;
-	head->next=0;
-			
-	return reverseHead;	
+	Node* next=head->next;
+	Node* reverseHead=ReverseList(next);
+	next->next=head;
+	head->next=NULL;
+
+	return reverseHead;
 }
 
 
 int main(int argc, char *argv[]) {
-	int a[]={1,2,3};
+	int a[]={1};
 	int length=sizeof(a)/sizeof(*a);
 	Node* head=CreateLinkListFromArray(a, 0, length);
 	PrintList(head);
