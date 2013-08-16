@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 //http://www.leetcode.com/2011/08/insert-into-a-cyclic-sorted-list.html
+//http://www.youtube.com/watch?v=8y5tYB004ss
 //Given a node from a cyclic linked list which has been sorted, write a function to insert a value into the list such that it remains a cyclic sorted list. The given node can be any single node in the list.
 //A cyclic sorted linked list. Note that the tail is pointing back to its head. The only reference to the list is a given node which can be any node in the list. Let’s say that you need to insert 4 into the list.
 
@@ -8,6 +9,8 @@ typedef struct node{
 	int value;
 	struct node* next;
 } Node;
+
+
 
 void PrintList(Node* startNode){
 	Node* p=startNode;

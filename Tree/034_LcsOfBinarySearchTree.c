@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 
 typedef struct	node{
 	int value;
@@ -10,7 +12,7 @@ Node* CreateBFSFromArray(int* a, int start, int end)
 {
 	if(start<=end){
 		int middle=(start+end)/2;
-		Node* newNode=malloc(sizeof(Node));
+		Node* newNode= (Node*) malloc(sizeof(Node));
 		newNode->value=a[middle];
 		newNode->left=CreateBFSFromArray(a, start, middle-1);
 		newNode->right=CreateBFSFromArray(a, middle+1, end);
@@ -29,16 +31,17 @@ void InOrderPrint(Node* root){
 	}
 }
 
-Node* LcsOfBinarySearchTree(Node* root, int leftValue, int rightValue){
-	if(root->value >leftValue && root->value > rightValue ){
-		return LcsOfBinarySearchTree(root->left, leftValue, rightValue);
-	}
-	else if (root->value <leftValue && root->value < rightValue) {
+Node* LcsOfBinarySearchTree(Node* root, int leftValue, int rightValue){//recursive
+	assert(leftValue<rightValue);
+	if(root->value<leftValue && root->value<rightValue){
 		return LcsOfBinarySearchTree(root->right, leftValue, rightValue);
 	}
-	else {
+	else if(root->value>leftValue && root->value>rightValue){
+		return LcsOfBinarySearchTree(root->left, leftValue, rightValue);
+	}
+	else{
 		return root;
-	}	
+	}
 }
 
 
