@@ -2,6 +2,11 @@
 #include <iostream>
 
 using namespace std;
+
+string getRational(double a){
+	
+}
+
 int main(int argc, char *argv[]) {
 	
 }
