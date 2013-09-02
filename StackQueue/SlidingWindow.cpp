@@ -1,6 +1,7 @@
 //http://codercareer.blogspot.com/2012/02/no-33-maximums-in-sliding-windows.html
+//http://www.mitbbs.com/article_t1/JobHunting/32156867_0_1.html
 //Question: Given an array of numbers and a sliding window size, how to get the maximal numbers in all sliding windows?
-
+//用一个queue，第一个数总保持最大的值,每当读一个新数，如果当前最大数过了window，就pop，然后如果当前的数小于最后的数，push进去。如果当前的数大于尾巴， 把尾巴干掉。
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -21,19 +22,16 @@ vector<int> maxInWindows(int* numbers, int arraySize, int windowSize)
 	deque<int> indexDequeue;
 	if(arraySize>0)
 	{
-		indexDequeue.push_back(0);
+		indexDequeue.push_back(0); //push in first index.
 		for (int i=1;  i<arraySize; i++) 
 		{		
-			int backOfQueue=indexDequeue.back();
-			if(numbers[backOfQueue]<=numbers[i])				indexDequeue.pop_back();
-			if(!indexDequeue.empty())
-			{
-				int frontOfQueue=indexDequeue.front();
-				if(frontOfQueue<=i-windowSize)
-					indexDequeue.pop_front();
-			}
+			if(numbers[indexDequeue.back()]<=numbers[i])	// if current number is larger than tail, get rid of tail.			
+				indexDequeue.pop_back();
+			if(!indexDequeue.empty() && indexDequeue.front()<=i-windowSize)
+				indexDequeue.pop_front();
 			indexDequeue.push_back(i);
-			if(i-windowSize>=-1)
+
+			if(i>=windowSize-1)
 			{
 				maxInWindow.push_back(numbers[indexDequeue.front()]);
 			}
