@@ -2,11 +2,9 @@
 #include <cstdio>
 #include <cstdlib>
 #include <stack>
+
+using namespace std;
 //http://www.geeksforgeeks.org/archives/1072
-
-
-
-
 struct ListNode{
 	int val;
 	struct ListNode* next;
@@ -31,27 +29,27 @@ ListNode* CreateListFromArray(int* a , int length)
 }
 
 bool isPalindrome(ListNode* head){
-	ListNode* orginalHead=head;
 	stack<int> s;
-	while(head!=NULL){
+	ListNode* originalHead=head;
+	while(NULL!=head){
 		s.push(head->val);
 		head=head->next;
 	}
-	while(orginalHead!=NULL){
+	while(NULL!=originalHead){
 		int top=s.top();
-		if(orginalHead->val!=top){
-			return false;
-		}
 		s.pop();
-		orginalHead=orginalHead->next;
+		if(top!=originalHead->val)
+			return false;
+		originalHead=originalHead->next;
 	}
 	return true;
 }
 
 
 int main(int argc, char *argv[]) {
-	int a[]={1,2,3,4,3,2};
-	ListNode* head=CreateListFromArray(a,7);
+	int a[]={1,2,3,1};
+	int size=sizeof(a)/sizeof(*a);
+	ListNode* head=CreateListFromArray(a,size);
 	bool isPalin=isPalindrome(head);
 	if(isPalin){
 		printf("\n Palindrome");
