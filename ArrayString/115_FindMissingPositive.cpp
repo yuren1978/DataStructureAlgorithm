@@ -38,7 +38,7 @@ int firstMissingPositive(int A[], int n) {
 
 
 int main(int argc, char *argv[]) {
-	int A[]={1,2,0};
+	int A[]={2,1,0};
 	int missing=firstMissingPositive(A,3);
 	cout<<missing<<endl;
 }

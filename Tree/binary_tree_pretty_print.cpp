@@ -16,7 +16,7 @@ struct BinaryTree {
 
 // Find the maximum height of the binary tree
 int maxHeight(BinaryTree *p) {
-  if (!p) return 0;
+  if (!p) return 0;2
   int leftHeight = maxHeight(p->left);
   int rightHeight = maxHeight(p->right);
   return (leftHeight > rightHeight) ? leftHeight + 1: rightHeight + 1;
