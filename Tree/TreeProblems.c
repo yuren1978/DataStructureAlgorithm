@@ -76,56 +76,8 @@ void ConnectRightSibling(TreeNode* node){
 }
 
 
-void PrintRightSibling(TreeNode* node){
-	if(node!=0){
-			printf("\n %d right child is %d", node->value, node->rightSibling?node->rightSibling->value:0);
-			PrintRightSibling(node->leftChild);
-			PrintRightSibling(node->rightChild);
-		}
 
-}
 
-void PreOrderTravel(TreeNode* node){
-	if(node!=0){
-		printf("%d ", node->value);
-		PreOrderTravel(node->leftChild);
-		PreOrderTravel(node->rightChild);
-	}
-}
-
-void InOrderTravel(TreeNode* node){
-	if(node==NULL)
-		return;
-
-	InOrderTravel(node->left);
-
-	if(node==NULL) {pre=node;}
-	else{
-		
-	}
-
-	InOrderTravel(node->right);
-
-}
-
-void PreOrderNonRecursive(TreeNode* root){
-	StackNode* stackHead=0;
-	TreeNode* treeNode=root;
-	while(1){
-		while(treeNode!=0){
-			printf("%d ", treeNode->value);
-			Push(&stackHead, treeNode);
-			treeNode=treeNode->leftChild;
-		}
-		TreeNode* headOfStack=Pop(&stackHead);
-		if(headOfStack==0){//stack empty
-			break;
-		}
-		else {
-			treeNode=headOfStack->rightChild;
-		}
-	}
-}
 
 int main(int argc, char *argv[]) {
 	int a[]={1,2,3,4,5,6,7};
