@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -23,36 +24,63 @@ void PrintList(ListNode* startNode){
 	printf("\n");
 }
 
-
-void mergeList(ListNode* & head, ListNode* insert){
-	//cout<<insert->val<<endl;
-	//cout<<"head value" << head->val <<endl;
-	if(insert->val<head->val){
-		insert->next=head;
-		head=insert;	
-		return;	
+ListNode* findMiddle(ListNode* head){
+	ListNode* fast=head->next;
+	ListNode* slow=head;
+	while(NULL!=fast){
+		fast=fast->next;
+		if(fast!=NULL){
+			fast=fast->next;
+			slow=slow->next;
+		}
 	}
-	ListNode* h1=head;
-	while(h1->next!=NULL && h1->next->val < insert->val){
-		h1=h1->next;
-	}	
-	ListNode* temp=h1->next;
-	h1->next=insert;
-	insert->next=temp;
-	return;
+	ListNode* middle=slow->next;
+	slow->next=NULL;
+	return middle;
+}
+
+
+ListNode* mergeLists(ListNode*  head1, ListNode* head2){
+	if(NULL==head1) return head2;
+	if(NULL==head2) return head1;
+	ListNode* mergeHead=NULL;
+	ListNode* temp=NULL;
+	while(NULL!=head1 && NULL!=head2){
+		if(head1->val < head2->val){
+			if(temp==NULL) temp=head1;
+			else{
+				temp->next=head1;
+				temp=head1;		
+			}
+			head1=head1->next;
+		}
+		else{
+			if(temp==NULL) temp=head2;
+			else{
+				temp->next=head2;
+				temp=head2;
+			}
+			head2=head2->next;
+		}
+		if(mergeHead==NULL)
+			mergeHead=temp;
+	}
+
+	if(head1==NULL)
+		temp->next=head2;
+	else if(head2==NULL)
+		temp->next=head1;
+
+	return mergeHead;
 }
 
 ListNode* sortLinkList(ListNode* head){	
-	if(NULL==head) return NULL;
-	ListNode* newHead=head;
-	ListNode* current=head->next;
-	newHead->next=NULL;
-	while(current!=NULL){		
-		ListNode* temp=current->next;
-		mergeList(newHead, current);		
-		current=temp;
-	}
-	return newHead;
+	if(NULL==head||NULL==head->next) return head;
+	ListNode* middle=findMiddle(head);
+	ListNode* firstPart=sortLinkList(head);
+	ListNode* secondPart=sortLinkList(middle);
+	ListNode* mergeList=mergeLists(firstPart, secondPart);
+	return mergeList;
 }
 
 ListNode* CreateListFromArray(int* a , int length)
@@ -74,8 +102,11 @@ ListNode* CreateListFromArray(int* a , int length)
 
 
 int main(){
-	int a[]={1,2,5,3,4,8,9};
-	ListNode* head=CreateListFromArray(a,7);	
+	int a[]={3,2,1,4,5};
+	ListNode* head=CreateListFromArray(a,5);
+	//ListNode* middle=findMiddle(head);
+	//cout<<middle->val<<endl;
+	//assert(3==middle->val);
 	//PrintList(head);
 	ListNode* newHead= sortLinkList(head);
 	PrintList(newHead);
