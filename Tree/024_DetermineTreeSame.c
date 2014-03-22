@@ -24,17 +24,7 @@ TreeNode* CreateTreeFromArray(int* array, int start, int end){
 }
 
 bool TreeSame(TreeNode* root1, TreeNode* root2){
-	if(root1==NULL && root2==NULL){
-		return true;
-	}
-	else if (root1!=NULL && root2!=NULL) {
-		return root1->value==root2->value
-			&& TreeSame(root1->left, root2->left)
-			&& TreeSame(root1->right, root2->right);
-	}
-	else {
-		return false;
-	}
+	
 }
 
 int main(int argc, char *argv[]) {

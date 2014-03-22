@@ -39,11 +39,7 @@ const TreeNode* getNode(const TreeNode* root, int value){
 	if(NULL==root) return NULL;
 	if(value==root->value) return root;
 	const TreeNode* leftChild= getNode(root->left, value );
-	if(leftChild) return leftChild;
-	const TreeNode* rightChild=getNode(root->right, value);
-	if(rightChild) return rightChild;
-
-	return NULL;
+	return leftChild!=NULL? leftChild: getNode(root->right, value);
 }
 
 const TreeNode* getLCA(const TreeNode* root, const TreeNode* left, const TreeNode* right){
