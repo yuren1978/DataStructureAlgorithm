@@ -20,9 +20,19 @@ public class SAP{
 
 		int shortest=Integer.MAX_VALUE;
 		for(int i=0; i<digraph.V(); i++){			
-			if(bfsFromV.hasPathTo(i) && bfsFromW.hasPathTo(i) && (bfsFromV.distTo(i)+bfsFromW.distTo(i)<shortest) )
+
+			//StdOut.println(bfsFromV.hasPathTo(i));
+			//StdOut.println(bfsFromW.hasPathTo(i));
+			//StdOut.println(bfsFromV.distTo(i));
+			//StdOut.println(bfsFromW.distTo(i));
+
+
+			if(bfsFromV.hasPathTo(i) && bfsFromW.hasPathTo(i) && (bfsFromV.distTo(i)+bfsFromW.distTo(i))<shortest ){
+				//StdOut.println("shortest value " + shortest+" distance from v is "+ bfsFromV.distTo(i) + "distance from w is " + bfsFromW.distTo(i));
 				shortest=bfsFromV.distTo(i)+bfsFromW.distTo(i);
-		}		
+			}
+		}	
+
 		return shortest<Integer.MAX_VALUE?shortest:-1;
 	}
 
@@ -39,6 +49,7 @@ public class SAP{
 		int shortestIndex=-1;
 		int shortest=Integer.MAX_VALUE;
 		for(int i=0; i<digraph.V(); i++){
+		
 			if(bfsFromV.hasPathTo(i) && bfsFromW.hasPathTo(i) && bfsFromV.distTo(i)+bfsFromW.distTo(i)<shortest){
 				shortestIndex=i;
 				shortest=bfsFromV.distTo(i)+bfsFromW.distTo(i);
@@ -52,6 +63,8 @@ public class SAP{
 		int shortest=Integer.MAX_VALUE;
 		for (int vi: v) {
 			for (int wi : w) {
+				//StdOut.println(vi);
+				//StdOut.println(wi);
 				if(length(vi, wi)<shortest){
 					shortest=length(vi, wi);
 				}

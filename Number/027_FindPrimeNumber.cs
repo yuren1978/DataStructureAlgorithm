@@ -15,14 +15,16 @@ class FindPrimeNumber{
 			}
 		}
 		int squareRoot=(int)Math.Sqrt(n);
+		
 		//cross out the non-prime number
 		for (int i=2; i<=squareRoot;i++) {
-			if(a[i]){
+			if(a[i]){// a[i] is prime
 				for (int j=i*i; j<=n; j+=i) {
 					a[j]=false;
 				}
 			}
 		}
+		
 		//print out the true element
 		for (int i=0; i<=n; i++) {
 			if (a[i]) {
@@ -33,6 +35,6 @@ class FindPrimeNumber{
 	
 	static void Main(){
 		Console.WriteLine("Find Prime Numbers");
-		PrintPrimeNumbers(48);
+		PrintPrimeNumbers(100);
 	}
 }
