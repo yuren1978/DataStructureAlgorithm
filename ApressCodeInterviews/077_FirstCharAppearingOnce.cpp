@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <limits>
+#include <cstdlib>
+#include <cstdio>
 
 using namespace std;
 
