@@ -1,1 +1,2 @@
+//http://www.glassdoor.com/Interview/Interweave-a-linked-list-Do-it-in-Linear-time-and-constant-space-Input-A-and-gt-B-and-gt-C-and-gt-D-and-gt-E-Output-A-and-gt-E-and-gt-QTN_241642.htm
 //Interweave a linked list. Do it in Linear time and constant space. Input: A->B->C->D->E Output: A->E->B->D->C 
