@@ -11,7 +11,9 @@ double findKth(int a[], int m, int b[], int n, int k)
 
     if (m == 0) return b[k-1];
     if (k == 1) return min(a[0], b[0]);
-    int pa = min(k/2, m), pb = k - pa;
+    
+
+    int pa = min(k/2, m), pb = k - pa; //pa, pb are median of the array.
     if (a[pa-1] < b[pb-1]) return findKth(a+pa, m-pa, b, n, k - pa);
     return findKth(a, m, b+pb, n-pb, k-pb);
 }
