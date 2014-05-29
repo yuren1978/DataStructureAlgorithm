@@ -13,14 +13,14 @@ using namespace std;
 void CombinationNumber(const char* cur, int length)
 {
 	int number=std::pow(2.0,length);
-		for (int i=1; i<number; i++) {
-			for (int j=0; j<length; j++) {
-				if((i>>j)&1){ //understand this condition
-					printf("%c ", *(cur+j));
-				}
+	for (int i=1; i<number; i++) { // 001, 010, 011, 100, 101, 110, 111
+		for (int j=0; j<length; j++) {
+			if((i>>j)&1){ //understand this condition
+				printf("%c ", *(cur+j));
 			}
-			printf("\n");
 		}
+		printf("\n");
+	}
 }
 
 void Combination(const char* cur, vector<char>& result)
