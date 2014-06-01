@@ -4,12 +4,21 @@
 //Input: { a, b, b }, distance = 2
 //Output: { b, a, b }
 
+//第一次见到这个题目。
 
-#include <stdio.h>
-#include <stdlib.h>
+//首先，把字母按照frequency降序排序.
+//S = {{2,b}, {1,a}}
+
+//然后，把字母依次放到以下位置：0, d, 2*d, ..., 1, 1+d, 1+2d, ....
 
 
-typedef  enum{false,true} bool;
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
 
 
 int find_max(int distance[], int freq[]) {
@@ -32,22 +41,27 @@ void create(char* str, int d, char ans[]) {
         freq[str[i]]++;
     
     int distance[256] = {0};
+
     for (int i = 0; i < n; i++) {
         
-            int j = find_max(distance, freq);
-            if (j == -1) {
-                printf("Error!\n") ;
-                return;
-            }
-        
-        ans[i] = j;
-        freq[j]--;
-        
-        distance[j] = d;
-        
+        int c = find_max(distance, freq);
+
+        if (c == -1) {
+            printf("Error!\n") ;
+            return;
+        }
+
+
+        ans[i] = c;
+        freq[c]--;
+
+
+        distance[c] = d; //key, why set distance to d.
         for (int i = 0; i < 256; i++)
             distance[i]--;
-        }
+
+
+    }
     ans[n] = '\0';
 }
 
@@ -57,8 +71,8 @@ int main(int argc, char *argv[]) {
 	    char a[]="abb";
 	    int d=2;
 	    char answer[]={0};
-	    
 	    create(a,d,answer);
+        cout<<answer<<endl;
 	    return 0;
 
 }
