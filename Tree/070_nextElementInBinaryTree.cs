@@ -50,21 +50,21 @@ public class NextElementInBinaryTree{
 	}
 	
 	
-	static Node GetNextElement2(Node root, int value){
+	// static Node GetNextElement2(Node root, int value){
 
-	
-	}
+		
+	// }
 	
 
 	static void Main(){
 		int[] a={1,2,3,4,5,6,7,8,9,10};
 
 		Node root=CreateTreeFromArray(a, 0, a.Length-1);
-		Debug.Assert(5==GetNextElement2(root, 4).value) ;
-		Debug.Assert(2==GetNextElement2(root, 1).value) ;
-		Debug.Assert(3==GetNextElement2(root, 2).value) ;
-		Debug.Assert(10==GetNextElement2(root, 9).value) ;
-		Debug.Assert(null==GetNextElement2(root, 10)) ;
+		Debug.Assert(5==GetNextElement(root, 4).value) ;
+		Debug.Assert(2==GetNextElement(root, 1).value) ;
+		Debug.Assert(3==GetNextElement(root, 2).value) ;
+		Debug.Assert(10==GetNextElement(root, 9).value) ;
+		Debug.Assert(null==GetNextElement(root, 10)) ;
 	}
 
 }

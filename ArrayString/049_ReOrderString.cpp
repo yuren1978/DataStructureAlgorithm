@@ -21,7 +21,7 @@ using namespace std;
 
 
 
-int find_max(int distance[], int freq[]) {
+int find_max(const int distance[], const int freq[]) {
     int max_i = -1;
     int max = -1;
     for (char c = 'a'; c <= 'z'; c++) {
