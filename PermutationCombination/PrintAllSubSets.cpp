@@ -1,6 +1,8 @@
 #include <cstdio>
 #include <vector>
+#include <iostream>
 #include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -55,18 +57,41 @@ void printVector(const vector<int>& v){
 }
 
 
+void subsetStrings(const string& s, int startIndex, string currentS, vector<string>& results ){
+    results.push_back(currentS);
+
+    for (int i = startIndex; i < s.size(); ++i){
+        currentS.push_back(s[i]);
+        subsetStrings(s, i+1, currentS, results);
+        currentS.pop_back();
+    }
+} 
+
+vector<string> subsetStrings(const string& s){
+    vector<string> results;
+    string currentS;
+    subsetStrings(s, 0, currentS, results);
+    return results;
+}
+
 
 int main(int argc, char *argv[]) {
-	vector<int> v;
-	v.push_back(1);
-	v.push_back(2);
-	v.push_back(3);
+	// vector<int> v;
+	// v.push_back(1);
+	// v.push_back(2);
+	// v.push_back(3);
 
 	
-	vector<vector<int> > s=subsets2(v);
-	int size=s.size();
-	for(int i=0; i<size; i++){
-		printVector(s[i]);
-		printf("\n");
-	}
+	// vector<vector<int> > s=subsets2(v);
+	// int size=s.size();
+	// for(int i=0; i<size; i++){
+	// 	printVector(s[i]);
+	// 	printf("\n");
+	// }
+
+    string inputString("abc");
+    vector<string> stringVector=subsetStrings(inputString);
+    for (auto& s : stringVector){
+        cout<<s<<endl;
+    }
 }
