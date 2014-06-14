@@ -126,7 +126,7 @@ TreeNode* createTree(){
 
   //leve 5
   root->left->left->left->left=new TreeNode(72);
-  root->left->left->left->left=new TreeNode(78);
+  root->left->left->left->right=new TreeNode(78);
   return root;
 }
 

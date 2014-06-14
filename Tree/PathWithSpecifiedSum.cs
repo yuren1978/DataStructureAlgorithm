@@ -1,5 +1,8 @@
 //http://codercareer.blogspot.com/2011/09/no-04-paths-with-specified-sum-in.html
-//Question: All nodes along children pointers from root to leaf nodes form a path in a binary tree. Given a binary tree and a number, please print out all of paths where the sum of all nodes value is same as the given number. 
+//Question: All nodes along children pointers from root to leaf nodes form a path in a binary tree. Given a binary tree and a number, 
+//please print out all of paths where the sum of all nodes value is same as the given number. 
+
+
 using System;
 using System.Collections.Generic;
 
