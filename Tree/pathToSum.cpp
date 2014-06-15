@@ -15,6 +15,7 @@ void init(){
     memset(node, '\0', sizeof(node));
     cnt = 0;
 }
+
 void create_minimal_tree(Node* &head, Node *parent, int a[], int start, int end){
     if(start <= end){
         int mid = (start + end)>>1;
@@ -39,6 +40,8 @@ void print(Node* head, int level){
     }
     cout<<endl;
 }
+
+
 void find_sum(Node* head, int sum){
     if(head == NULL) return;
     Node *no = head;
@@ -52,11 +55,15 @@ void find_sum(Node* head, int sum){
     find_sum(head->lchild, sum);
     find_sum(head->rchild, sum);
 }
+
+
 void print2(vector<int> v, int level){
     for(int i=level; i<v.size(); ++i)
         cout<<v.at(i)<<" ";
     cout<<endl;
 }
+
+
 void find_sum2(Node* head, int sum, vector<int> v, int level){
     if(head == NULL) return;
     v.push_back(head->key);
