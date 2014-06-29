@@ -3,105 +3,130 @@
 #include <cstring>
 using namespace std;
 
-const int maxn = 100;
+// const int maxn = 100;
 struct Node{
-    int key;
-    Node *lchild, *rchild, *parent;
+    int val;
+    Node *left, *right, *parent;
+    Node(int val) : left(NULL), right(NULL), parent(NULL), val(val) { }
 };
-Node node[maxn];
-int cnt;
 
-void init(){
-    memset(node, '\0', sizeof(node));
-    cnt = 0;
+
+
+Node* createTree(){
+  Node* root=new Node(1);
+  //level 2
+  root->left=new Node(2);
+  root->right=new Node(3);
+  //level 3
+  root->left->left=new Node(2);
+  root->left->right=new Node(2);
+  root->right->left=new Node(3);
+  return root;
 }
 
-void create_minimal_tree(Node* &head, Node *parent, int a[], int start, int end){
-    if(start <= end){
-        int mid = (start + end)>>1;
-        node[cnt].key = a[mid];
-        node[cnt].parent = parent;
-        head = &node[cnt++];
-        create_minimal_tree(head->lchild, head, a, start, mid-1);
-        create_minimal_tree(head->rchild, head, a, mid+1, end);
+
+vector< vector<int> >  combineTrees(vector<vector<int> >& v1, vector<vector<int> >& v2, vector<vector<int> >& v3 ){
+    v1.insert(v1.end(), v2.begin(), v2.end());
+    v1.insert(v1.end(), v3.begin(), v3.end());
+    return v1;
+}
+
+
+vector<vector<int> > find_all_trees(Node* root){
+    vector<vector<int> > v;
+    
+    if(NULL==root) return v;
+
+
+    vector<vector<int> > left_all_trees=find_all_trees(root->left);
+    vector<vector<int> > right_all_trees=find_all_trees(root->right);
+
+
+    vector<int> singleV; 
+    singleV.push_back(root->val); 
+    v.push_back(singleV);
+
+    if(left_all_trees.size()==0 && right_all_trees.size()==0 ){
+        return v;
     }
-}
 
 
-void print(Node* head, int level){
-    vector<int> v;
-    for(int i=0; i<level; ++i){
-        v.push_back(head->key);
-        head = head->parent;
+
+
+    vector< vector<int>> leftTrees;
+    vector< vector<int>> rightTrees;
+    vector< vector<int>> crossTrees;
+
+    for (auto& left : left_all_trees ){
+        vector<int> leftTree=left;
+        leftTree.push_back(root->val);
+        leftTrees.push_back(leftTree);
     }
-    while(!v.empty()){
-        cout<<v.back()<<" ";
-        v.pop_back();
+
+    for (auto& right : right_all_trees){
+        vector<int> rightTree=right;
+        rightTree.push_back(root->val);
+        rightTrees.push_back(rightTree);
     }
-    cout<<endl;
+
+    for(auto& left: left_all_trees)
+      for (auto& right: right_all_trees) {
+          vector<int> crossTree=left;
+          crossTree.push_back(root->val);
+          for (auto& item : right){
+            crossTree.push_back(item);
+          }
+          crossTrees.push_back(crossTree);
+      }
+
+      vector< vector<int> > allTrees= combineTrees(leftTrees, rightTrees, crossTrees);
+      allTrees.push_back(singleV);
+      return allTrees;
 }
 
 
-void find_sum(Node* head, int sum){
-    if(head == NULL) return;
-    Node *no = head;
-    int tmp = 0;
-    for(int i=1; no!=NULL; ++i){
-        tmp += no->key;
-        if(tmp == sum)
-            print(head, i);
-        no = no->parent;
+
+int treeSum(const vector<int>& v){
+    int sum=0;
+    for (auto& item: v){
+      sum +=item;
     }
-    find_sum(head->lchild, sum);
-    find_sum(head->rchild, sum);
+    return sum;
 }
 
 
-void print2(vector<int> v, int level){
-    for(int i=level; i<v.size(); ++i)
-        cout<<v.at(i)<<" ";
-    cout<<endl;
-}
+vector<vector<int> > find_sum(Node* root, int target){
 
+    vector<vector<int> > pathTrees;  
 
-void find_sum2(Node* head, int sum, vector<int> v, int level){
-    if(head == NULL) return;
-    v.push_back(head->key);
-    int tmp = 0;
-    for(int i=level; i>-1; --i){
-        tmp += v.at(i);
-        if(tmp == sum)
-            print2(v, i);
+    if(NULL==root) 
+        return pathTrees;
+
+    vector<vector<int> > trees = find_all_trees(root);
+    vector<vector<int> > leftSumTrees=find_sum(root->left, target);
+    vector<vector<int> > rightSumTrees=find_sum(root->right, target);
+  
+    for (int i = 0; i < trees.size(); ++i){
+        if( treeSum(trees[i]) ==target ){
+            pathTrees.push_back(trees[i]);
+        }   
     }
-    vector<int> v1(v), v2(v);
-    find_sum2(head->lchild, sum, v1, level+1);
-    find_sum2(head->rchild, sum, v2, level+1);
-}
+
+    return combineTrees(pathTrees,leftSumTrees, rightSumTrees)  ;
+ }
+
 
 
 int main(){
-    init();
-    int a[] = {
-        4, 3, 1, 5, 2, 1, 6
-    };
-    Node *head = NULL;
-    create_minimal_tree(head, NULL, a, 0, 6);
-    cout<<head->key<<endl;
-    
-    cout<<head->lchild->key<<endl;
-    
-    cout<<head->lchild->lchild->key<<endl;
-    cout<<head->lchild->rchild->key<<endl;
+    Node* root=createTree();
+    vector<vector<int> > v=find_sum(root, 6);
+    for (auto& vectorItem : v){
+        cout<<" list of item ";
+        for (auto& item : vectorItem){
+           cout<<item<<" ";
+        }
+        cout<<endl;
+    }
 
-
-    cout<<head->rchild->key<<endl;
-
-
-    cout<<head->rchild->lchild->key<<endl;
-    cout<<head->rchild->rchild->key<<endl;
-
-    // find_sum(head, 8);
-    vector<int> v;
-    find_sum2(head, 8, v, 0);
     return 0;
 }

@@ -27,10 +27,14 @@ void flattenToHeadTail(TreeNode* root, TreeNode* & head, TreeNode* & tail){
 	
 	root->right=leftHead!=NULL?leftHead:rightHead;
 	root->left=NULL;
+
+
 	if(leftTail!=NULL){
 		leftTail->left=NULL;
 		leftTail->right=rightHead;		
 	}
+
+	
 	head=root;
 	tail=rightTail;
 	if(tail==NULL){

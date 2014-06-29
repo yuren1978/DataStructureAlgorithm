@@ -33,12 +33,10 @@ public class BinaryTreeInOrderNonRecursive{
 		
 		public Node GetNext(){
 			Node current=stack.Pop();
-			if(current.right!=null){
-				Node right=current.right;
-				while (right!=null) {
-					stack.Push(right);
-					right=right.left;
-				}
+			Node right=current.right;
+			while (right!=null) {
+				stack.Push(right);
+				right=right.left;
 			}
 			return current;
 		}

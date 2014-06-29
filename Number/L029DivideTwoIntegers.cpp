@@ -15,50 +15,45 @@
 
 //typedef long long long_int; 
 #include <iostream>
-#include <stdio.h>
+#include <cstdio>
+#include <cmath>
+
 using namespace std;
 
-int Divide(int dividend, int divisor) 
-{
-			int sign = 1;
-	        if (dividend<0){sign = -sign;}
-	        if (divisor<0){sign = -sign;}
-	         
-	        unsigned long long tmp = abs((long long)dividend);
-	        unsigned long long tmp2 = abs((long long)divisor);
-	                
-	        unsigned long c = 1;
-	        while (tmp>tmp2){
-	            tmp2 = tmp2<<1;    
-	            c = c<<1;
-	        }
-	
-			printf("c is %d and tmp2 is %d\n", c, tmp2);         
-	
-	        int res = 0;
-	        while (tmp>=abs((long long)divisor)){
-	            
-				while (tmp>=tmp2){//add the result
-					 printf("tmp is %d \n", tmp);
-	                tmp -= tmp2;
-	                res += c;
-	            }
-				
-	            tmp2=tmp2>>1;
-	            c=c>>1;    
-	        }
-	         
-	        return sign*res;
-	
-}	
+ int divide(int dividend, int divisor) {
+        if (divisor == 0) return 0;
+       
+        unsigned long long a = abs((long long)dividend);
+        unsigned long long b = abs((long long)divisor);
+        
+        
+        int result = 0;
 
+ 		// for (unsigned long i = 0; b <= a; i++) {
+   //              a -= b;
+   //              result += 1 << i;
+   //              b <<= 1;
+   //       }
+
+        while (a >= b) {
+            unsigned long c = b;
+            cout<<" a " << a << endl;
+            for (unsigned long i = 0; c <= a; i++) {
+                a -= c;
+                result += 1 << i;
+                c <<= 1;
+            }
+
+        }
+        return ((dividend^divisor) >> 31) == 0 ? result : 0 - result;
+    }
 
 
 
 int main(int argc, char** argv)
 {
-    int dividend = 15;
-	int divisor = 3;
-    printf("%d\n", Divide(dividend,divisor));
+    int dividend = 5;
+	int divisor = 2;
+    printf("%d\n", divide(dividend,divisor));
     return 0;
 }
