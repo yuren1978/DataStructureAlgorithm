@@ -105,7 +105,7 @@ void printAllPathNonRecursive(TreeNode* root){
 int main() {
   TreeNode* fullBinaryTree=createTree();
   vector<int> v;
-  printAllPathRecursive(fullBinaryTree,v);
+  //printAllPathRecursive(fullBinaryTree,v);
   printAllPathNonRecursive(fullBinaryTree);
 
   return 0;

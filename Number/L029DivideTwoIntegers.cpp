@@ -26,14 +26,7 @@ using namespace std;
         unsigned long long a = abs((long long)dividend);
         unsigned long long b = abs((long long)divisor);
         
-        
         int result = 0;
-
- 		// for (unsigned long i = 0; b <= a; i++) {
-   //              a -= b;
-   //              result += 1 << i;
-   //              b <<= 1;
-   //       }
 
         while (a >= b) {
             unsigned long c = b;
