@@ -37,6 +37,16 @@ void threeWayPartition(int * low, int * high, int pivot) {
     }
 }
 
+void dutchFlagPartition(int * low, int * high, int pivot) {
+    for (int *p = low; p < high; ) {
+        if (*p == pivot)
+            ++p;
+        else if (*p < pivot)
+            swap(*low++, *p++);
+        else
+            swap(*p, *--high);
+    }
+}
 
 
 int main(int argc, char const *argv[])

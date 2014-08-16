@@ -57,7 +57,7 @@ int IsPalindrome_solution2(unsigned int number)
 
 // ==================== Test Code ====================
 
-void Test(char* testName, int number, int expected)
+void Test(const char* testName, int number, int expected)
 {
     if(testName != NULL)
         printf("%s begins: ", testName);

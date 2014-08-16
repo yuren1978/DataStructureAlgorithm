@@ -13,12 +13,15 @@ vector<vector<int> > subsets2(vector<int>& vec){
     vector<vector<int> > v;
     int number=std::pow(2.0,length);
     for (int i=1; i<number; i++) {
+        //cout<< i <<endl;
         vector<int> currentVector;
+        
         for (int j=0; j<length; j++) {
             if((i>>j)&1){
                 currentVector.push_back(vec[j]);
             }
         }
+        
         v.push_back(currentVector);
     }
     return v;
@@ -27,7 +30,7 @@ vector<vector<int> > subsets2(vector<int>& vec){
 
 void subsets(vector<int> &S, int startIndex, vector<int>& v , vector<vector<int> >& results, int size){
 
-    if(size==v.size())
+    //if(size==v.size())
         results.push_back(v);
     
     for(int i=startIndex; i<S.size(); i++){
@@ -39,13 +42,13 @@ void subsets(vector<int> &S, int startIndex, vector<int>& v , vector<vector<int>
 
 
 
-vector<vector<int> > subsets(vector<int> &S, int size) {
+vector<vector<int> > subsets(vector<int> &S) {
     // Start typing your C/C++ solution below
     // DO NOT write int main() function
     sort(S.begin(), S.end());
     vector<vector<int> > results;
     vector<int> v;
-    subsets(S, 0 , v, results, size);
+    subsets(S, 0 , v, results, S.size());
     return results;
 }
 
@@ -74,24 +77,50 @@ vector<string> subsetStrings(const string& s){
     return results;
 }
 
+void swap(vector<char>& v, int i, int j){
+    char temp=v[i];
+    v[i]=v[j];
+    v[j]=temp;
+}
+
+
+void permutation(vector<char>& v,  int n){
+    if(1==n){
+        for (int i = 0; i < v.size(); ++i){
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+        return;
+    }
+
+    for (int i = 0; i < n; ++i){
+        swap(v, i, n-1);
+        permutation(v, n-1);
+        swap(v,n-1, i);   
+    }
+}
+
 
 int main(int argc, char *argv[]) {
-	// vector<int> v;
-	// v.push_back(1);
-	// v.push_back(2);
-	// v.push_back(3);
+	 vector<int> v;
+	 v.push_back(1);
+	 v.push_back(2);
+	 v.push_back(3);
 
 	
-	// vector<vector<int> > s=subsets2(v);
-	// int size=s.size();
-	// for(int i=0; i<size; i++){
-	// 	printVector(s[i]);
-	// 	printf("\n");
-	// }
+	 vector<vector<int> > s=subsets(v);
+	int size=s.size();
+	for(int i=0; i<size; i++){
+		printVector(s[i]);
+		printf("\n");
+	}
 
-    string inputString("abc");
-    vector<string> stringVector=subsetStrings(inputString);
-    for (auto& s : stringVector){
-        cout<<s<<endl;
-    }
+    //string inputString("abc");
+    //vector<string> stringVector=subsetStrings(inputString);
+    //for (auto& s : stringVector){
+    //    cout<<s<<endl;
+    //}
+    //vector<char> cv{'a','b'};
+
+    //permutation(cv, cv.size());
 }
