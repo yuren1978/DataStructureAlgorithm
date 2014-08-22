@@ -58,10 +58,10 @@ TreeNode* createTree(){
       root->left=new TreeNode(5);
       root->right=new TreeNode(15);
       //level 3
-      root->left->left=new TreeNode(1);
-      root->left->right=new TreeNode(8);
+      //root->left->left=new TreeNode(1);
+      //root->left->right=new TreeNode(8);
 
-      root->right->right=new TreeNode(7);
+      //root->right->right=new TreeNode(7);
 
       return root;
 }
@@ -72,7 +72,7 @@ int main(int argc, char *argv[]) {
     TreeNode* largetTree=findLargestBSTSubtree(root);
     cout<<largetTree->data<<endl;
     //cout<<noOfNodes<<endl;
-    assert(5==largetTree->data);
-    assert(1==largetTree->left->data);
-    assert(8==largetTree->right->data);
+    //assert(5==largetTree->data);
+    //assert(1==largetTree->left->data);
+    //assert(8==largetTree->right->data);
 }
