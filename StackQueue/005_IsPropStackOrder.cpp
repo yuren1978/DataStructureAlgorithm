@@ -10,7 +10,7 @@ using namespace std;
 
 	bool IsPopOrder(const int* push, const int* pop, int nLength)
 	{
-		
+		return true;	
 	}
 
 	
