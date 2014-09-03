@@ -68,6 +68,51 @@ int getMaxDistance(vector< vector<int> >& v , int m, int n){
 }
 
 
+void dfsSetMatrixCount(vector< vector<int> >& v , int m, int n, int i, int j, const int& count){
+	if(!inRange(i,j,m,n) || v[i][j]<0)
+		return;
+
+	if( v[i][j]==1){
+		v[i][j]=count;
+		dfsSetMatrixCount(v, m, n, i-1, j, count);
+		dfsSetMatrixCount(v, m, n, i, j-1, count);
+		dfsSetMatrixCount(v, m, n, i+1, j, count);
+		dfsSetMatrixCount(v, m, n, i, j+1, count);
+	}	
+}
+
+
+int setMatrixCount(vector< vector<int> >& v ){
+	
+	int m=v.size();
+	int n=v[0].size();
+	int count=-1;
+	for (int i = 0; i < m; ++i){
+		for(int j=0; j<n; ++j){
+			if(v[i][j]==1){
+				dfsSetMatrixCount(v,m, n, i, j, count);
+				count--;
+			}	
+		}
+	}
+	return count;
+}
+
+
+void printmaxtirx(const vector< vector<int> >& v ){
+	int m=v.size();
+	int n=v[0].size();
+	for(int i=0; i<m; i++){
+		cout<<"{";
+		for(int j=0; j<n;j++){
+			cout<< (v[i][j]<0 ? (0-v[i][j]):0) ;
+			if(j!=n-1)
+				cout<<",";
+		}
+		cout<<"}"<<endl;
+	}
+}
+
 int main(int argc, char const *argv[])
 {
 	vector< vector<int> > a =
@@ -104,10 +149,23 @@ int main(int argc, char const *argv[])
 	    {7,8,2}
 	};
 
+	vector< vector<int> > e =
+	{
+	    {0, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+	    {1, 1, 0, 0, 1, 1, 0, 0, 0, 0},
+	    {1, 1, 1, 0, 0, 1, 1, 0, 0, 0},
+	    {0, 0, 0, 1, 1, 0, 0, 0, 0, 0 }
+	};
+
 	assert(3==getConnectedCount(a,3,3));
 	assert(1==getConnectedCount(b,3,3));
 	assert(2==getConnectedCount(c,7,12));
 
 	cout<<getMaxDistance(d,3,3)<<endl;
+
+	setMatrixCount(e);
+
+	printmaxtirx(e);
+
 	return 0;
 }
