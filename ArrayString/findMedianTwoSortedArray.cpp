@@ -2,6 +2,7 @@
 //lolhaha :思路倒是简单，就是两分，然后每次抛掉肯定用不到的部分
 //fatalme :取两个数组各自的median，比较大小，然后把小的左边抛弃，大的右边抛弃，再继续取median，如此反复
 #include <iostream>
+
 using namespace std;
 
 
