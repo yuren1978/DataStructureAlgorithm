@@ -1,4 +1,4 @@
-class FindShiftInRotatedArray 
+public class FindShiftInRotatedArray 
 {
 	public static void main(String[] args)
 	{
