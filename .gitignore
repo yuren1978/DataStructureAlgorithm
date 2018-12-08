@@ -18,3 +18,4 @@ o.obj
 a.out
 RemoveSpaceFromString
 *.class
+a.out*
