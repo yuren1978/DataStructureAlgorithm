@@ -1,3 +1,9 @@
+# Ignore all
+*
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
 [Oo]bj
 [Bb]in
 *.user
@@ -19,3 +25,8 @@ a.out
 RemoveSpaceFromString
 *.class
 a.out*
+# Ignore `bin` dir
+bin/
+# or
+*/bin/*
+*/ipch/*

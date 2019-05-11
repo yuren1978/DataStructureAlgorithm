@@ -34,6 +34,7 @@ void numDistinct(string S, string T, int sStart, int tIndex, int sSize, int tSiz
  int numDistinct(string S, string T) {
         // Start typing your C/C++ solution below
         // DO NOT write int main() function
+        //
         int count=0;
         int tSize=T.size();
         int sSize=S.size();
