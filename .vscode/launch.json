@@ -1,20 +1,25 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
     "configurations": [
         {
-            "name": "(lldb) Launch",
-            "type": "cppdbg",
+            "type": "java",
+            "name": "CodeLens (Launch) - Duplication",
             "request": "launch",
-            "program": "${workspaceFolder}/a.out",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "lldb"
+            "mainClass": "Duplication"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConvertRational",
+            "request": "launch",
+            "mainClass": "ConvertRational"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Minimum",
+            "request": "launch",
+            "mainClass": "Minimum",
+            "classPaths": [
+                "${workspaceRoot}:."
+            ]
         }
     ]
 }
