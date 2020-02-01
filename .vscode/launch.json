@@ -1,6 +1,19 @@
 {
     "configurations": [
         {
+            "name": "(lldb) Launch",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": []
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FindShiftInRotatedArray",
+            "request": "launch",
+            "mainClass": "FindShiftInRotatedArray"
+        },
+        {
             "type": "java",
             "name": "CodeLens (Launch) - Duplication",
             "request": "launch",
