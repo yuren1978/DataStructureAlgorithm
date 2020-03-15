@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - Duplication006",
+            "request": "launch",
+            "mainClass": "Duplication006",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
             "name": "(lldb) Launch",
             "type": "lldb",
             "request": "launch",

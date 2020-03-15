@@ -2,7 +2,7 @@
 // Harry He
 
 
-public class Duplication {
+public class Duplication006 {
     public static int duplicate(int numbers[]) {
         int length = numbers.length;
         for(int i = 0; i < length; ++i) {
