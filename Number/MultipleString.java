@@ -1,5 +1,5 @@
-public class Solution {
-    public String multiply(String a, String b) {
+public class MultipleString {
+    public static String multiply(String a, String b) {
         // Start typing your Java solution below
         // DO NOT write main() function
         int m = a.length();
@@ -18,5 +18,10 @@ public class Solution {
         for(int x : rl)
             if(x != 0 || !ans.isEmpty()) ans += x;
         return (ans.isEmpty()) ? "0" : ans;
+    }
+
+    public static void main(String[] args){
+        String mulString=multiply("123", "456");
+        System.out.print(mulString);
     }
 }

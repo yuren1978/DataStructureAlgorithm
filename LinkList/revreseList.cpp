@@ -87,14 +87,14 @@ void printList(Node* head){
 
 int main(int argc, char const *argv[])
 {
-	//Node* head=createList();
-	//printList(head);
-	//Node* reverseHead=reverseRcursively(head);
-	//printList(reverseHead);	
+	Node* head=createList();
+	printList(head);
+	Node* reverseHead=reverseRcursively(head);
+	printList(reverseHead);	
 
-	Node* l1=new Node(1);
-	Node* l2=new Node(2);
-	Node* m=mergeTwoLists(l1,l2);
+	// Node* l1=new Node(1);
+	// Node* l2=new Node(2);
+	// Node* m=mergeTwoLists(l1,l2);
 	return 0;
 }
 

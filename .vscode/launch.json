@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LinkedHashMapDemo",
+            "request": "launch",
+            "mainClass": "LinkedHashMapDemo",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Duplication006",
             "request": "launch",
             "mainClass": "Duplication006",
