@@ -16,6 +16,10 @@ public class HashMapDemo{
         for (Map.Entry<Integer, String> me : hmap.entrySet()) {
           System.out.println("Key: "+me.getKey() + " & Value: " + me.getValue());
         }
+
+         /* Get values based on key*/
+        String var= hmap.get(2);
+        System.out.println("Value at index 2 is: "+var);
     }
 
     public static void main(String args[]) {

@@ -6,6 +6,11 @@
         "**/.factorypath": true
     },
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "iosfwd": "cpp"
+    },
+    "code-runner.executorMap": {
+
+        "cpp":   "cd $dir && g++ -std=c++11 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
     }
 }
