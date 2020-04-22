@@ -117,7 +117,7 @@ public class BinaryTreeInOrderNonRecursive{
 	}
 
 	static void PreOrderTravel(Node root){
-		if(root!=NULL){
+		if(root!=null){
 			Console.Write(root.value);
 			Console.Write(" ");
 			PreOrderTravel(root.left);
@@ -127,10 +127,11 @@ public class BinaryTreeInOrderNonRecursive{
 	}
 
 
-	static void Main(){
+	public static void Main(){
+		Console.WriteLine("Test in order travel");
 		int[] a={1,2,3,4,5,6,7,8,9,10};
 		Node root=CreateTreeFromArray(a, 0, a.Length-1);
-		//InOrderNonRecursive(root);
+		InOrderNonRecursive(root);
 		//PreOrderNonRecursive(root);
 		//PreOrderTravel(root);
 		//InOrderIterator inOrderIterator=new InOrderIterator(root);
@@ -154,3 +155,5 @@ public class BinaryTreeInOrderNonRecursive{
 	}
 
 }
+
+BinaryTreeInOrderNonRecursive.Main();

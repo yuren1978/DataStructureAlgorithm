@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - FindAnagrams",
+            "request": "launch",
+            "mainClass": "FindAnagrams",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - findAnagrams",
+            "request": "launch",
+            "mainClass": "findAnagrams",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LinkedHashMapDemo",
             "request": "launch",
             "mainClass": "LinkedHashMapDemo",
