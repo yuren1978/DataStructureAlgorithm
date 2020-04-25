@@ -1,11 +1,13 @@
 //http://www.mitbbs.com/article_t/JobHunting/32190019.html
 #include <iostream>
 #include <string>
-
+#include <map>
 using namespace std;
 
 //Greedy.
 string intToRoman(int num) {
+    map<int, string> romanMap;
+
     romanMap[1000] = "M";
     
     romanMap[900] = "CM";

@@ -35,10 +35,10 @@ bool isNumber(const char *s)
     if(NULL==p) return false;
 
     p += skipSpace(p);
-    if('\0'==p) return false;
+    if('\0'==*p) return false;
 
     p += skipSign(p);
-    if('\0'==p) return false;
+    if('\0'==*p) return false;
 
     int n1=skipDigit(p);
     p +=n1;
