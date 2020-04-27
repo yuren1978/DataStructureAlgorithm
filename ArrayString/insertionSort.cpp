@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
-#include <cmath>
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
