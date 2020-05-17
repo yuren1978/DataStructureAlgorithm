@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - versionCompare",
+            "request": "launch",
+            "mainClass": "versionCompare",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - FindAnagrams",
             "request": "launch",
             "mainClass": "FindAnagrams",
