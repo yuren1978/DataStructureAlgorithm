@@ -3,7 +3,7 @@ import java.util.*;
 public class HashMapDemo{
 
     private static void iterateHashMap(){
-        HashMap<Integer, String> hmap = new HashMap<Integer, String>();
+        HashMap<Integer, String> hmap = new HashMap<>();
         //Adding elements to HashMap
         hmap.put(11, "AB");
         hmap.put(2, "CD");
