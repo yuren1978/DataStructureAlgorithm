@@ -9,7 +9,10 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "random": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "queue": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
     },
     "code-runner.executorMap": {
 

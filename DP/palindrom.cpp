@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-
+#include <sstream>
 using namespace std;
 
 
@@ -88,4 +88,15 @@ int main(int argc, char const *argv[])
 	vector< vector<string> > v5=partition("aabbaa");
 	printVector(v5);
 	return 0;
+
+
+
+
+	std::string input = "This is a sentence to read";
+	std::istringstream iss(input);
+	std::string token;
+
+while(std::getline(iss, token, ' ')) {
+    std::cout << token << endl;
+}
 }

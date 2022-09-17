@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch CordTree",
+            "request": "launch",
+            "mainClass": "Tree.CordTree",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayListDemo",
+            "request": "launch",
+            "mainClass": "ArrayListDemo",
+            "projectName": "DataStructureAlgorithm_e0e3636"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - versionCompare",
             "request": "launch",
             "mainClass": "versionCompare",
